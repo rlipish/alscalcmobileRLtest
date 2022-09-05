@@ -1,0 +1,19 @@
+{
+    "short_name": "ALS Calculator",
+    "name": "ALS Calculator",
+    "icons": [
+        {
+            "src": "/images/~rlipish/neuron.png",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        }
+    ],
+    "start_url": "https://people.ucalgary.ca/~rlipish/buildALSmobile/",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "url": "https://people.ucalgary.ca/~rlipish/buildALSmobile/",
+    "lang": "",
+    "screenshots": [],
+    "orientation": "portrait"
+}
