@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.b9b62618.chunk.css",
-    "main.js": "./static/js/main.e20043cd.chunk.js",
-    "main.js.map": "./static/js/main.e20043cd.chunk.js.map",
-    "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
-    "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
-    "static/js/2.a52e6766.chunk.js": "./static/js/2.a52e6766.chunk.js",
-    "static/js/2.a52e6766.chunk.js.map": "./static/js/2.a52e6766.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.9a96d4624adc0a10fd21ca18dfedd9cd.js": "./precache-manifest.9a96d4624adc0a10fd21ca18dfedd9cd.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/main.b9b62618.chunk.css.map": "./static/css/main.b9b62618.chunk.css.map"
+    "main.css": "/alscalcmobileRLtest/static/css/main.b9b62618.chunk.css",
+    "main.js": "/alscalcmobileRLtest/static/js/main.0ef5dbc2.chunk.js",
+    "main.js.map": "/alscalcmobileRLtest/static/js/main.0ef5dbc2.chunk.js.map",
+    "runtime~main.js": "/alscalcmobileRLtest/static/js/runtime~main.71a3f89e.js",
+    "runtime~main.js.map": "/alscalcmobileRLtest/static/js/runtime~main.71a3f89e.js.map",
+    "static/js/2.b2a57698.chunk.js": "/alscalcmobileRLtest/static/js/2.b2a57698.chunk.js",
+    "static/js/2.b2a57698.chunk.js.map": "/alscalcmobileRLtest/static/js/2.b2a57698.chunk.js.map",
+    "index.html": "/alscalcmobileRLtest/index.html",
+    "precache-manifest.6d8ba1786a6e7de71446c20cd05b2383.js": "/alscalcmobileRLtest/precache-manifest.6d8ba1786a6e7de71446c20cd05b2383.js",
+    "service-worker.js": "/alscalcmobileRLtest/service-worker.js",
+    "static/css/main.b9b62618.chunk.css.map": "/alscalcmobileRLtest/static/css/main.b9b62618.chunk.css.map"
   }
 }
