@@ -22,14 +22,14 @@ body {
   background-color: #f5f2f0;
 }
 
-/* .title {
-  position: absolute;
-  text-align: center;
-  top: 0px;
+.title {
+/*   position: absolute;
+ */  text-align: center;
+/*   top: 0px;
   width: 100%;
   background-color: #363636;
   color: #fff;
-} */
+ */}
 
 /* toggle button initial spacing */
 .regionName {

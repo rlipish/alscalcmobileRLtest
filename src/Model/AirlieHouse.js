@@ -71,7 +71,7 @@ class AirlieHouse extends ElEscorial {
         this.regionsWithLMNByEMGOnly >= 2 && this.selections.excluded)
     ) {
       return {
-        diagnosis: "Clinically Probable ALS - Lab Supported",
+        diagnosis: "Clinically Probable ALS - Laboratory Supported",
         explanation: `This scenario is classified as Clinically Probable 
                         ALS - Laboratory Supported as there are clinical signs of: 
                         1. UMN and LMN dysfunction are in only one region, OR
