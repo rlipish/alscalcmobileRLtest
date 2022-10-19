@@ -8,11 +8,11 @@
             "type": "image/x-icon"
         }
     ],
-    "start_url": "https://people.ucalgary.ca/~rlipish/buildALSmobile/",
+    "start_url": "https://rlipish.github.io/alscalcmobileRLtest/",
     "display": "standalone",
     "theme_color": "#000000",
     "background_color": "#ffffff",
-    "url": "https://people.ucalgary.ca/~rlipish/buildALSmobile/",
+    "url": "https://rlipish.github.io/alscalcmobileRLtest/",
     "lang": "",
     "screenshots": [],
     "orientation": "portrait"
