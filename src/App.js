@@ -38,7 +38,7 @@ class App extends Component {
       { id: "Lumbosacral", umn: false, lmn: false, fibs: false, fasics: false, chronicDenerv: false }
     ],
 
-    excluded: false,
+    excluded: true,
     gene: false,
     tilt: false,
 
