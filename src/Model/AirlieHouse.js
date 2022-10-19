@@ -65,9 +65,9 @@ class AirlieHouse extends ElEscorial {
     }
 
     if (
-      (this.regionsWithUMN === 1 && this.regionsWithLMNByPhysicalOnly === 1 && this.UMNLevel === this.LMNLevel) ||
+      (this.regionsWithUMN === 1 && this.regionsWithLMNByPhysicalOnly === 1 && this.UMNLevel === this.LMNLevel && this.selections.excluded) ||
       (this.regionsWithUMN >= 1 &&
-        this.regionsWithLMNByEMGOnly >= 2 &&
+        this.regionsWithLMNByEMGOnly >= 2 && this.selections.excluded &&
         (this.mostRostralFinding === "UMN" || (this.mostRostralFinding === "uncertain" && this.selections.tilt)))
     ) {
       return {

@@ -397,7 +397,7 @@ class App extends Component {
       results = (
         <div className="results">
           <div className="tilt">
-            On review, does the patient have any upper motor neuron findings rostral to (i.e above) lower motor neuron
+            On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron
             findings?
             <div className="tiltButtons">
               <Button variant="contained" color={this.state.yesColor} onClick={() => this.yesButtonHandler()}>
