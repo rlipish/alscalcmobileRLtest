@@ -209,6 +209,18 @@ class App extends Component {
                     checked={region.lmn}
                   />
                 </span>
+                <div className="excluded">
+                  
+          <span>
+            {excludedMessage}
+            <Toggle
+              className="exclduedToggle"
+              name="excluded"
+              onChange={event => this.excludedButtonHandler(event)}
+              checked={this.state.excluded}
+            />
+          </span>
+        </div>
 
                 {/* <span className="toggle">
                   <Toggle
@@ -318,17 +330,7 @@ class App extends Component {
           })}
         </div>
 
-        <div className="excluded">
-          <span>
-            {excludedMessage}
-            <Toggle
-              className="exclduedToggle"
-              name="excluded"
-              onChange={event => this.excludedButtonHandler(event)}
-              checked={this.state.excluded}
-            />
-          </span>
-        </div>
+
 
         <div className="gene">
           <span>
