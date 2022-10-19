@@ -22,6 +22,7 @@ class App extends Component {
     this.elEDiag = null;
     this.airlieDiag = null;
     this.awajiDiag = null;
+    // this.goldCoastDiag = null;
     this.mostRostralFinding = "";
 
     this.showResults = this.showResults.bind(this);
@@ -37,6 +38,7 @@ class App extends Component {
       { id: "Lumbosacral", umn: false, lmn: false, fibs: false, fasics: false, chronicDenerv: false }
     ],
 
+    excluded: false,
     gene: false,
     tilt: false,
 
@@ -81,6 +83,10 @@ class App extends Component {
     regions[regionIndex] = region;
 
     this.setState({ regions: regions });
+  };
+
+  excludedButtonHandler = event => {
+    this.setState({ excluded: event.target.checked });
   };
 
   geneButtonHandler = event => {
@@ -168,6 +174,8 @@ class App extends Component {
     let geneMessage = `A familial history of ALS is present, and a pathogenic 
       gene mutation in the patient has been identified:`;
 
+    let excludedMessage = `Other causes have been excluded with proper application of neuroimaging and clinical laboratory protocols:`;
+
     let findings = (
       <div className="physical">
         <div className="titles">
@@ -234,18 +242,6 @@ class App extends Component {
             );
           })}
         </div>
-
-        {/* <div className="gene">
-          <span>
-            {geneMessage}
-            <Toggle
-              className="geneToggle"
-              name="gene"
-              onChange={event => this.geneButtonHandler(event)}
-              checked={this.state.gene}
-            />
-          </span>
-        </div> */}
 
         <div className="reset">
           <Button className="resetButton" variant="outlined" onClick={() => this.resetButtonHandler()}>
@@ -320,6 +316,18 @@ class App extends Component {
               </div>
             );
           })}
+        </div>
+
+        <div className="excluded">
+          <span>
+            {excludedMessage}
+            <Toggle
+              className="exclduedToggle"
+              name="excluded"
+              onChange={event => this.excludedButtonHandler(event)}
+              checked={this.state.excluded}
+            />
+          </span>
         </div>
 
         <div className="gene">

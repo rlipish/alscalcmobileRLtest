@@ -83,6 +83,15 @@ body {
   /* background-color:violet ; */
 }
 
+.excluded {
+  position: absolute;
+  width: 100%;
+  bottom: 50px;
+  padding: 0px;
+  margin: 0px;
+  /* background-color: #61dafb; */
+}
+
 .gene {
   position: absolute;
   width: 100%;
@@ -90,6 +99,12 @@ body {
   padding: 0px;
   margin: 0px;
   /* background-color: #61dafb; */
+}
+
+.excludedToggle {
+  display: inline-block;
+  left: 50px;
+  /* background-color: bisque; */
 }
 
 .geneToggle {
