@@ -5,6 +5,7 @@ import Results from "./Model/Results";
 import ElEscorial from "./Model/ElEscorial";
 import AirlieHouse from "./Model/AirlieHouse";
 import AwajiShima from "./Model/AwajiShima";
+import GoldCoast from "./Model/GoldCoast";
 import Panel from "./Components/Panel/Panel";
 import DiagnosisResults from "./Components/DiagnosisResults/DiagnosisResults";
 import Button from "@material-ui/core/Button";
@@ -22,12 +23,15 @@ class App extends Component {
     this.elEDiag = null;
     this.airlieDiag = null;
     this.awajiDiag = null;
-    // this.goldCoastDiag = null;
+    this.goldCoastDiag = null;
     this.mostRostralFinding = "";
 
     this.showResults = this.showResults.bind(this);
     this.yesButtonHandler = this.yesButtonHandler.bind(this);
     this.noButtonHandler = this.noButtonHandler.bind(this);
+    this.yesButtonHandlerProg = this.yesButtonHandlerProg.bind(this);
+    this.noButtonHandlerProg = this.noButtonHandlerProg.bind(this);
+
   }
 
   state = {
@@ -41,12 +45,15 @@ class App extends Component {
     excluded: true,
     gene: false,
     tilt: false,
+    progressive: null,
 
     isTiltNeeded: null,
     revealResults: true,
 
     yesColor: "default",
-    noColor: "default"
+    noColor: "default",
+    yesColorP: "default",
+    noColorP: "default"
   };
 
   changedHandler = (event, id, finding) => {
@@ -98,17 +105,27 @@ class App extends Component {
   };
 
   yesButtonHandler = () => {
-    this.setState({ tilt: true, revealResults: true, yesColor: "primary", noColor: "default" });
+    this.setState({ tilt: true, revealResults: false, yesColor: "primary", noColor: "default" });
     // this.setState({ revealResults: true })
   };
 
   noButtonHandler = () => {
-    this.setState({ tilt: false, revealResults: true, yesColor: "default", noColor: "primary" });
+    this.setState({ tilt: false, revealResults: false, yesColor: "default", noColor: "primary" });
   };
 
   resetButtonHandler = () => {
     window.location.reload();
   };
+
+  yesButtonHandlerProg = () => {
+    this.setState({ progressive: true, revealResults: true, yesColorP: "primary", noColorP: "default" });
+    // this.setState({ revealResults: true })
+  };
+
+  noButtonHandlerProg = () => {
+    this.setState({ progressive: false, revealResults: true, yesColorP: "default", noColorP: "primary" });
+  };
+
 
   getmostRostralFinding = () => {
     if (this.state.isTiltNeeded) {
@@ -152,6 +169,7 @@ class App extends Component {
     const elE = new ElEscorial(this.state);
     const airlie = new AirlieHouse(this.state);
     const awaji = new AwajiShima(this.state);
+    const gold = new GoldCoast(this.state);
 
     this.results.setDiagnosisStrategy(elE);
 
@@ -164,6 +182,10 @@ class App extends Component {
     this.results.setDiagnosisStrategy(awaji);
 
     this.awajiDiag = this.results.result;
+
+    this.results.setDiagnosisStrategy(gold);
+
+    this.goldDiag = this.results.result;
   }
 
   render() {
@@ -222,33 +244,6 @@ class App extends Component {
           </span>
         </div>
 
-                {/* <span className="toggle">
-                  <Toggle
-                    className="toggle"
-                    name={region.id + "fibs"}
-                    onChange={event => this.changedHandler(event, region.id, 2)}
-                    checked={region.fibs}
-                  />
-                </span>
-
-                <span className="toggle">
-                  <Toggle
-                    className="toggle"
-                    name={region.id + "fasics"}
-                    onChange={event => this.changedHandler(event, region.id, 3)}
-                    checked={region.fasics}
-                  />
-                </span>
-
-                <span className="toggle">
-                  <Toggle
-                    className="toggle"
-                    name={region.id + "chronic"}
-                    onChange={event => this.changedHandler(event, region.id, 4)}
-                    checked={region.chronicDenerv}
-                  />
-                </span> */}
-
                 <hr />
               </div>
             );
@@ -280,23 +275,6 @@ class App extends Component {
               <div key={region.id}>
                 <span className="regionName">{region.id}</span>
 
-                {/* <span className="toggle">
-                  <Toggle
-                    name={region.id + "umn"}
-                    onChange={event => this.changedHandler(event, region.id, 0)}
-                    checked={region.umn}
-                  />
-                </span>
-
-                <span className="toggle">
-                  <Toggle
-                    className="toggle"
-                    name={region.id + "lmn"}
-                    onChange={event => this.changedHandler(event, region.id, 1)}
-                    checked={region.lmn}
-                  />
-                </span> */}
-
                 <span className="toggle">
                   <Toggle
                     className="toggle"
@@ -329,8 +307,6 @@ class App extends Component {
             );
           })}
         </div>
-
-
 
         <div className="gene">
           <span>
@@ -388,6 +364,14 @@ class App extends Component {
             additionalInfo={awajiInfo}
           />
 
+<hr />
+
+          <DiagnosisResults
+            title="Gold Coast (2020)"
+            diagnosis={this.goldDiag.diagnosis}
+            explanation={this.goldDiag.explanation}
+            additionalInfo={awajiInfo}
+          />
           <hr />
         </div>
       );
@@ -412,11 +396,43 @@ class App extends Component {
             </div>
           </div>
 
+          <div className="prog">
+          Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, 
+          preceded by normal motor function?
+            <div className="progButtons">
+              <Button variant="contained" color={this.state.yesColorP} onClick={() => this.yesButtonHandlerProg()}>
+                Yes
+              </Button>
+
+              <Button variant="contained" color={this.state.noColorP} onClick={() => this.noButtonHandlerProg()}>
+                No
+              </Button>
+            </div>
+          </div>
+
           {diagnosisResult}
         </div>
       );
     } else {
-      results = <div className="results">{diagnosisResult}</div>;
+      results = <div className="results">
+
+          <div className="prog">
+          Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, 
+          preceded by normal motor function?
+            <div className="progButtons">
+              <Button variant="contained" color={this.state.yesColorP} onClick={() => this.yesButtonHandlerProg()}>
+                Yes
+              </Button>
+
+              <Button variant="contained" color={this.state.noColorP} onClick={() => this.noButtonHandlerProg()}>
+                No
+              </Button>
+            </div>
+          </div>
+        
+        {diagnosisResult}
+        
+        </div>;
     }
 
     return (
