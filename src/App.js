@@ -189,9 +189,9 @@ class App extends Component {
   }
 
   render() {
-    let awajiInfo = `Lower motor neuron (LMN) findings can include LMN clinical findings, 
+    let awajiInfo = `Lower motor neuron (LMN) findings can be any of the following: 1. LMN clinical findings, 2. 
                     (fibrillations/positive sharp waves AND chronic denervation), OR
-                    (fasciculations AND chronic denervation).`;
+                    3. (fasciculations AND chronic denervation).`;
 
     let geneMessage = `A familial history of ALS is present, and a pathogenic 
       gene mutation in the patient has been identified:`;
