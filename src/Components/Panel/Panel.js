@@ -43,8 +43,8 @@ class Panel extends React.Component {
       <div>
         <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
           {/* Is where we arrange order for findings and results at the bottom of the panel. */}
-          <div style={Object.assign({}, styles.slide, styles.slide1)}>{this.props.findings}</div>
-          <div style={Object.assign({}, styles.slide, styles.slide1)}>{this.props.findings1}</div>
+          <div style={Object.assign({}, styles.slide, styles.slide3)}>{this.props.findings}</div>
+          <div style={Object.assign({}, styles.slide, styles.slide3)}>{this.props.findings1}</div>
 
           <div style={Object.assign({}, styles.slide, styles.slide3)}>{this.props.results}</div>
         </SwipeableViews>
