@@ -231,10 +231,6 @@ class App extends Component {
                     checked={region.lmn}
                   />
                 </span>
-
-
-
-
                 <hr />
               </div>
             );
@@ -252,7 +248,7 @@ class App extends Component {
             />
           </span>
         </div>
-        
+
         <div className="reset">
           <Button className="resetButton" variant="outlined" onClick={() => this.resetButtonHandler()}>
             Reset All
