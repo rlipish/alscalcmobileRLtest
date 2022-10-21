@@ -15,7 +15,7 @@ class AirlieHouse extends ElEscorial {
     console.log("UMN regions: " + this.regionsWithUMN);
     console.log("LMN regions: " + this.regionsWithLMN);
     console.log("EMG LMN regions: " + this.regionsWithLMNByEMGOnly);
-    console.log("Most rostal: " + this.mostRostralFinding);
+    console.log("Most rostral: " + this.mostRostralFinding);
 
     if (this.regionsWithUMN >= 1 && this.regionsWithLMN >= 1 && this.selections.gene) {
       return {
@@ -90,7 +90,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    if (this.regionsWithUMN >= 2 && this.regionsWithLMN == 0) {
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0) {
       return {
         diagnosis: "Clinically Possible ALS",
         explanation: `This scenario is classified as Possible ALS as there are upper motor

@@ -52,7 +52,7 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    if (this.regionsWithUMN >= 2 && this.regionsWithLMN == 0) {
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0) {
       return {
         diagnosis: "Clinically Possible ALS",
         explanation: `This scenario is classified as Possible ALS as there are upper motor
