@@ -4,11 +4,12 @@ class AwajiShima extends AirlieHouse {
   calculateDiagnosis() {
     if (this.regionsWithUMN >= 1 && this.regionsWithLMN >= 1 && this.selections.gene) {
       return {
-        diagnosis: "Clinically Definite Familial ALS - Lab Supported",
+        diagnosis: "Clinically Definite Familial ALS - Laboratory Supported",
         explanation: `This scenario is classified as Clinically Definite Familial 
                     ALS - Laboratory Supported as there are upper and lower motor neuron signs 
                     in at least a single region as well as a family history of a defined 
-                    pathogenic mutation.`
+                    pathogenic mutation. This scenario is not specifically mentioned in the article 
+                    but might be presumed to be obeying the "Principles (from the Airlie House criteria)"`
       };
     }
 
@@ -74,11 +75,7 @@ class AwajiShima extends AirlieHouse {
       return {
         diagnosis: "Clinically Possible ALS",
         explanation: `This scenario is classified as Clinically Possible ALS 
-                as lower motor neuron signs are rostral to upper motor neuron signs and
-                the diagnosis of Clinically Probable ALS – Laboratory supported cannot 
-                be proven by evidence on clinical grounds in conjunction with 
-                electrodiagnostic, neurophysiologic, neuroimaging or clinical laboratory 
-                studies.`
+                as lower motor neuron signs are rostral to upper motor neuron signs.`
       };
     }
 
