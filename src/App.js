@@ -231,18 +231,9 @@ class App extends Component {
                     checked={region.lmn}
                   />
                 </span>
-                <div className="excluded">
-                  
-          <span>
-            {excludedMessage}
-            <Toggle
-              className="exclduedToggle"
-              name="excluded"
-              onChange={event => this.excludedButtonHandler(event)}
-              checked={this.state.excluded}
-            />
-          </span>
-        </div>
+
+
+
 
                 <hr />
               </div>
@@ -250,6 +241,18 @@ class App extends Component {
           })}
         </div>
 
+        <div className="excluded">               
+          <span>
+            {excludedMessage}
+            <Toggle
+              className="excludedToggle"
+              name="excluded"
+              onChange={event => this.excludedButtonHandler(event)}
+              checked={this.state.excluded}
+            />
+          </span>
+        </div>
+        
         <div className="reset">
           <Button className="resetButton" variant="outlined" onClick={() => this.resetButtonHandler()}>
             Reset All
