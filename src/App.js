@@ -9,11 +9,11 @@ import GoldCoast from "./Model/GoldCoast";
 import Panel from "./Components/Panel/Panel";
 import DiagnosisResults from "./Components/DiagnosisResults/DiagnosisResults";
 import Button from "@material-ui/core/Button";
-import { createMuiTheme } from "@material-ui/core/styles";
+/* import { createMuiTheme } from "@material-ui/core/styles";
 
 import lightBlue from "@material-ui/core/colors/lightBlue";
 import pink from "@material-ui/core/colors/pink";
-
+ */
 // const muiTheme = createMuiTheme({ palette: { primary: lightBlue, secondary: pink } });
 
 class App extends Component {

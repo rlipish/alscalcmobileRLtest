@@ -34,6 +34,8 @@ class Panel extends React.Component {
     this.setState({
       index
     });
+    this.props.changed();
+
   };
 
   render() {
