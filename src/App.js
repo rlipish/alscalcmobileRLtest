@@ -105,12 +105,12 @@ class App extends Component {
   };
 
   yesButtonHandler = () => {
-    this.setState({ tilt: true, revealResults: false, yesColor: "primary", noColor: "default" });
+    this.setState({ tilt: true, revealResults: true, yesColor: "primary", noColor: "default" });
     // this.setState({ revealResults: true })
   };
 
   noButtonHandler = () => {
-    this.setState({ tilt: false, revealResults: false, yesColor: "default", noColor: "primary" });
+    this.setState({ tilt: false, revealResults: true, yesColor: "default", noColor: "primary" });
   };
 
   resetButtonHandler = () => {
@@ -384,6 +384,7 @@ class App extends Component {
           <div className="tilt">
             On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron
             findings?
+            <br />
             <div className="tiltButtons">
               <Button variant="contained" color={this.state.yesColor} onClick={() => this.yesButtonHandler()}>
                 Yes
@@ -395,9 +396,13 @@ class App extends Component {
             </div>
           </div>
 
+
+
           <div className="prog">
           Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, 
           preceded by normal motor function?
+          <br />
+
             <div className="progButtons">
               <Button variant="contained" color={this.state.yesColorP} onClick={() => this.yesButtonHandlerProg()}>
                 Yes
@@ -409,6 +414,7 @@ class App extends Component {
             </div>
           </div>
 
+
           {diagnosisResult}
         </div>
       );
@@ -418,6 +424,8 @@ class App extends Component {
           <div className="prog">
           Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, 
           preceded by normal motor function?
+          <br />
+
             <div className="progButtons">
               <Button variant="contained" color={this.state.yesColorP} onClick={() => this.yesButtonHandlerProg()}>
                 Yes
@@ -429,6 +437,7 @@ class App extends Component {
             </div>
           </div>
         
+
         {diagnosisResult}
         
         </div>;

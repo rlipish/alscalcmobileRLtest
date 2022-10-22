@@ -131,7 +131,7 @@ body {
 }
 
 .tiltButtons {
-  position: absolute;
+  position: relative;
   top: 75%;
   margin: 15px;
   /* left: 50%; */
@@ -150,7 +150,7 @@ body {
 }
 
 .progButtons {
-  position: absolute;
+  position: relative;
   top: 75%;
   margin: 15px;
   /* left: 50%; */
