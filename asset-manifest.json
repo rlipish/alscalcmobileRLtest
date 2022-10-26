@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/alscalcmobileRLtest/static/css/main.792f2716.chunk.css",
+    "main.css": "/alscalcmobileRLtest/static/css/main.7ec3db77.chunk.css",
     "main.js": "/alscalcmobileRLtest/static/js/main.e625738e.chunk.js",
     "main.js.map": "/alscalcmobileRLtest/static/js/main.e625738e.chunk.js.map",
     "runtime~main.js": "/alscalcmobileRLtest/static/js/runtime~main.71a3f89e.js",
@@ -8,8 +8,8 @@
     "static/js/2.814467f2.chunk.js": "/alscalcmobileRLtest/static/js/2.814467f2.chunk.js",
     "static/js/2.814467f2.chunk.js.map": "/alscalcmobileRLtest/static/js/2.814467f2.chunk.js.map",
     "index.html": "/alscalcmobileRLtest/index.html",
-    "precache-manifest.4aa9767f29ee1986faecfc88069cceec.js": "/alscalcmobileRLtest/precache-manifest.4aa9767f29ee1986faecfc88069cceec.js",
+    "precache-manifest.841d8a26e9f0a6889d88157a75c74918.js": "/alscalcmobileRLtest/precache-manifest.841d8a26e9f0a6889d88157a75c74918.js",
     "service-worker.js": "/alscalcmobileRLtest/service-worker.js",
-    "static/css/main.792f2716.chunk.css.map": "/alscalcmobileRLtest/static/css/main.792f2716.chunk.css.map"
+    "static/css/main.7ec3db77.chunk.css.map": "/alscalcmobileRLtest/static/css/main.7ec3db77.chunk.css.map"
   }
 }
