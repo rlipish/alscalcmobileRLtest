@@ -16,6 +16,7 @@ class AirlieHouse extends ElEscorial {
     console.log("LMN regions: " + this.regionsWithLMN);
     console.log("EMG LMN regions: " + this.regionsWithLMNByEMGOnly);
     console.log("Most rostral: " + this.mostRostralFinding);
+    console.log("Tilt: " + this.selections.tilt);
 
     if (this.regionsWithUMN >= 1 && this.regionsWithLMN >= 1 && this.selections.gene) {
       return {

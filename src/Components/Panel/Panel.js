@@ -49,12 +49,14 @@ class Panel extends React.Component {
           <div style={Object.assign({}, styles.slide, styles.slide3)}>{this.props.findings1}</div>
 
           <div style={Object.assign({}, styles.slide, styles.slide3)}>{this.props.results}</div>
+          <div style={Object.assign({}, styles.slide, styles.slide3)}>{this.props.final}</div>
+
         </SwipeableViews>
         <Tabs value={index} variant="fullWidth" onChange={this.handleChange} style={styles.tabs}>
           <Tab label="Physical" />
           <Tab label="Lab" />
-          <Tab label="Results" />
-          <Tab label="Terms" />
+          <Tab label="Additional" />
+          <Tab label="Calculation" />
         </Tabs>
       </div>
     );

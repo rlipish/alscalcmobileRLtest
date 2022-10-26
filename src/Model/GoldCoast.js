@@ -4,6 +4,8 @@ class GoldCoast extends AwajiShima {
 
   calculateDiagnosis() {
 
+    console.log("Progressive: " + this.selections.progressive);
+
 
     if (this.regionsWithLMN >= 2 && 
          this.selections.progressive) {

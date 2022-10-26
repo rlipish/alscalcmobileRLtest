@@ -159,7 +159,7 @@ class App extends Component {
     this.setState({ isTiltNeeded: this.results.diagnosis.isTiltConfirmationNeeded() });
 
     if (this.results.diagnosis.isTiltConfirmationNeeded()) {
-      this.setState({ revealResults: true });
+      this.setState({ revealResults: false });
     } else {
       this.setState({ revealResults: true });
     }
@@ -415,7 +415,7 @@ class App extends Component {
           </div>
 
 
-          {/* {diagnosisResult} */}
+          {diagnosisResult}
         </div>
       );
     } else {
@@ -436,18 +436,15 @@ class App extends Component {
               </Button>
             </div>
           </div>
+        
+
+        {diagnosisResult}
+        
         </div>;
     }
 
-    let final = (
-      <div className="results">
-        {diagnosisResult}
-      </div>
-         
-        );
-console.log("RevealResults: " + this.state.revealResults);
 
-  
+   
     return (
       <div>
         <div className="title">
@@ -455,7 +452,7 @@ console.log("RevealResults: " + this.state.revealResults);
           <h1>ALS Calculator</h1>
         </div>
 
-        <Panel findings={findings} findings1={findings1} results={results} final={final} changed={this.showResults} />
+        <Panel findings={findings} findings1={findings1} results={results} changed={this.showResults} />
       </div>
     );
   }
