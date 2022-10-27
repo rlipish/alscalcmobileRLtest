@@ -20,7 +20,7 @@ class AirlieHouse extends ElEscorial {
 
     if (this.regionsWithUMN >= 1 && this.regionsWithLMN >= 1 && this.selections.gene) {
       return {
-        diagnosis: "Clinically Definite Familial ALS - Lab Supported",
+        diagnosis: "Clinically Definite Familial ALS - Laboratory Supported",
         explanation: `This scenario is classified as Clinically Definite Familial
                     ALS - Laboratory Supported as there are upper and lower motor neuron signs
                     in at least a single region as well as a family history of a defined 

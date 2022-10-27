@@ -46,7 +46,9 @@ body {
 }
 
 .physical {
+  display: grid;
   position: relative;
+  max-width: 800px;
   width: 100%;
   height: 475px;
   overflow: hidden;
@@ -124,7 +126,7 @@ body {
 
 .reset {
   position: absolute;
-  bottom: 110px;
+  bottom: 80px;
   right: 10%;
 }
 

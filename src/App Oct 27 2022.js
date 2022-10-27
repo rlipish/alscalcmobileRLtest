@@ -31,10 +31,6 @@ class App extends Component {
     this.noButtonHandler = this.noButtonHandler.bind(this);
     this.yesButtonHandlerProg = this.yesButtonHandlerProg.bind(this);
     this.noButtonHandlerProg = this.noButtonHandlerProg.bind(this);
-    this.yesButtonHandlerEx = this.yesButtonHandlerEx.bind(this);
-    this.noButtonHandlerEx = this.noButtonHandlerEx.bind(this);
-    this.yesButtonHandlerFam = this.yesButtonHandlerFam.bind(this);
-    this.noButtonHandlerFam = this.noButtonHandlerFam.bind(this);
 
   }
 
@@ -57,12 +53,7 @@ class App extends Component {
     yesColor: "default",
     noColor: "default",
     yesColorP: "default",
-    noColorP: "default",
-    yesColorE: "primary",
-    noColorE: "default",
-    yesColorF: "default",
-    noColorF: "primary"
-
+    noColorP: "default"
   };
 
   changedHandler = (event, id, finding) => {
@@ -135,23 +126,6 @@ class App extends Component {
     this.setState({ progressive: false, revealResults: true, yesColorP: "default", noColorP: "primary" });
   };
 
-  yesButtonHandlerEx = () => {
-    this.setState({ excluded: true, revealResults: true, yesColorE: "primary", noColorE: "default" });
-    // this.setState({ revealResults: true })
-  };
-
-  noButtonHandlerEx = () => {
-    this.setState({ excluded: false, revealResults: true, yesColorE: "default", noColorE: "primary" });
-  };
-
-  yesButtonHandlerFam = () => {
-    this.setState({ gene: true, revealResults: true, yesColorF: "primary", noColorF: "default" });
-    // this.setState({ revealResults: true })
-  };
-
-  noButtonHandlerFam = () => {
-    this.setState({ gene: false, revealResults: true, yesColorF: "default", noColorF: "primary" });
-  };
 
   getmostRostralFinding = () => {
     if (this.state.isTiltNeeded) {
@@ -263,7 +237,7 @@ class App extends Component {
           })}
         </div>
 
-        {/* <div className="excluded">               
+        <div className="excluded">               
           <span>
             {excludedMessage}
             <Toggle
@@ -273,7 +247,7 @@ class App extends Component {
               checked={this.state.excluded}
             />
           </span>
-        </div> */}
+        </div>
 
         <div className="reset">
           <Button className="resetButton" variant="outlined" onClick={() => this.resetButtonHandler()}>
@@ -333,7 +307,7 @@ class App extends Component {
           })}
         </div>
 
-        {/* <div className="gene">
+        <div className="gene">
           <span>
             {geneMessage}
             <Toggle
@@ -343,7 +317,7 @@ class App extends Component {
               checked={this.state.gene}
             />
           </span>
-        </div> */}
+        </div>
 
         <div className="reset">
           <Button className="resetButton" variant="outlined" onClick={() => this.resetButtonHandler()}>
@@ -404,65 +378,13 @@ class App extends Component {
 
     let results = null;
 
-    let progdiv = (
-      <div className="prog">
-      Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, 
-      preceded by normal motor function?
-      <br />
-
-        <div className="progButtons">
-          <Button variant="contained" color={this.state.yesColorP} onClick={() => this.yesButtonHandlerProg()}>
-            Yes
-          </Button>
-
-          <Button variant="contained" color={this.state.noColorP} onClick={() => this.noButtonHandlerProg()}>
-            No
-          </Button>
-        </div>
-      </div>
-    )
-
-    let exdiv = (
-      <div className="prog">
-     {excludedMessage}
-      <br />
-
-        <div className="progButtons">
-          <Button variant="contained" color={this.state.yesColorE} onClick={() => this.yesButtonHandlerEx()}>
-            Yes
-          </Button>
-
-          <Button variant="contained" color={this.state.noColorE} onClick={() => this.noButtonHandlerEx()}>
-            No
-          </Button>
-        </div>
-      </div>
-    )
-
-    let famdiv = (
-      <div className="prog">
-     {geneMessage}
-      <br />
-
-        <div className="progButtons">
-          <Button variant="contained" color={this.state.yesColorF} onClick={() => this.yesButtonHandlerFam()}>
-            Yes
-          </Button>
-
-          <Button variant="contained" color={this.state.noColorF} onClick={() => this.noButtonHandlerFam()}>
-            No
-          </Button>
-        </div>
-      </div>
-    )
-
     if (this.state.isTiltNeeded) {
       results = (
         <div className="results">
           <div className="tilt">
             On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron
             findings?
-            {/* <br /> */}
+            <br />
             <div className="tiltButtons">
               <Button variant="contained" color={this.state.yesColor} onClick={() => this.yesButtonHandler()}>
                 Yes
@@ -474,17 +396,46 @@ class App extends Component {
             </div>
           </div>
 
-{progdiv}
-{exdiv}
-{famdiv}
+
+
+          <div className="prog">
+          Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, 
+          preceded by normal motor function?
+          <br />
+
+            <div className="progButtons">
+              <Button variant="contained" color={this.state.yesColorP} onClick={() => this.yesButtonHandlerProg()}>
+                Yes
+              </Button>
+
+              <Button variant="contained" color={this.state.noColorP} onClick={() => this.noButtonHandlerProg()}>
+                No
+              </Button>
+            </div>
+          </div>
+
+
+          {/* {diagnosisResult} */}
         </div>
       );
     } else {
       results = <div className="results">
 
-{progdiv}
-{exdiv}
-{famdiv}
+          <div className="prog">
+          Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, 
+          preceded by normal motor function?
+          <br />
+
+            <div className="progButtons">
+              <Button variant="contained" color={this.state.yesColorP} onClick={() => this.yesButtonHandlerProg()}>
+                Yes
+              </Button>
+
+              <Button variant="contained" color={this.state.noColorP} onClick={() => this.noButtonHandlerProg()}>
+                No
+              </Button>
+            </div>
+          </div>
         </div>;
     }
 
