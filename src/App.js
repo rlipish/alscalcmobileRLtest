@@ -18,6 +18,7 @@ import pink from "@material-ui/core/colors/pink";
 
 class App extends Component {
   constructor(props) {
+    // Super means will get props from App (from the parent class)
     super(props);
     this.results = new Results();
     this.elEDiag = null;
@@ -26,6 +27,7 @@ class App extends Component {
     this.goldCoastDiag = null;
     this.mostRostralFinding = "";
 
+    // The third approach. Binds this
     this.showResults = this.showResults.bind(this);
     this.yesButtonHandler = this.yesButtonHandler.bind(this);
     this.noButtonHandler = this.noButtonHandler.bind(this);
@@ -65,6 +67,7 @@ class App extends Component {
 
   };
 
+  // For toggle button change
   changedHandler = (event, id, finding) => {
     const regionIndex = this.state.regions.findIndex(p => {
       return p.id === id;
@@ -191,6 +194,7 @@ class App extends Component {
     }
   }
 
+  // For the last page
   revealResults() {
     const elE = new ElEscorial(this.state);
     const airlie = new AirlieHouse(this.state);
@@ -224,8 +228,15 @@ class App extends Component {
 
     let excludedMessage = `Other causes have been excluded with proper application of neuroimaging and clinical laboratory protocols:`;
 
+    // find and determine height of physical
+    function vhToPixels (vh) {
+      return Math.round(window.innerHeight / (100 / vh));
+    }  
+    let ht100 = vhToPixels(100)
+    let ht = ht100 - 134
+    let htpx = ht + 'px';
     let findings = (
-      <div className="physical">
+      <div className="physical" style={{"height" : htpx}} >
         <div className="titles">
           {/* Puts title across the top of the table */}
           <span className="region"><br />UMN</span>
@@ -239,12 +250,14 @@ class App extends Component {
           {this.state.regions.map(region => {
             return (
               <div key={region.id}>
+                {/* Region.id e.g. cervical */}
                 <span className="regionName">{region.id}</span>
 
                 <span className="toggle">
                   <Toggle
                     name={region.id + "umn"}
                     onChange={event => this.changedHandler(event, region.id, 0)}
+                    // umn defined in class regions at the beginning
                     checked={region.umn}
                   />
                 </span>
@@ -284,7 +297,7 @@ class App extends Component {
     );
 
     let findings1 = (
-      <div className="physical">
+      <div className="physical" style={{"height" : htpx}}>
         <div className="titles">
           {/* Puts title across the top of the table */}
           {/* <span className="region">UMN</span>
@@ -360,12 +373,15 @@ class App extends Component {
 
       diagnosisResult = (
         <div className="diagResults">
+          {/* This div class name is not found */}
           <div className="rostralFinding">
+            {/* Statement on whether or UMN or LMN or null */}
             <p>{this.getmostRostralFinding()}</p>
           </div>
 
           <hr />
 
+{/* From that component */}
           <DiagnosisResults
             title="El Escorial (1994)"
             diagnosis={this.elEDiag.diagnosis}
@@ -496,7 +512,8 @@ class App extends Component {
         );
 console.log("RevealResults: " + this.state.revealResults);
 
-  
+
+
     return (
       <div>
         <div className="title">
@@ -510,4 +527,5 @@ console.log("RevealResults: " + this.state.revealResults);
   }
 }
 
+// Exports this as a component
 export default App;
