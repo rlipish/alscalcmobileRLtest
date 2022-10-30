@@ -27,7 +27,7 @@ class App extends Component {
     this.goldCoastDiag = null;
     this.mostRostralFinding = "";
 
-    // The third approach. Binds this
+    // The third approach. Binds this makes sure functions have access to component attributes
     this.showResults = this.showResults.bind(this);
     this.yesButtonHandler = this.yesButtonHandler.bind(this);
     this.noButtonHandler = this.noButtonHandler.bind(this);
@@ -76,6 +76,8 @@ class App extends Component {
     const region = {
       ...this.state.regions[regionIndex]
     };
+
+    // The switch/case statement is a conditional operator that’s commonly used as an alternative to if...else statement. if-else statements don't work inside JSX. This is because JSX is just syntactic sugar for function calls and object construction.
 
     switch (finding) {
       case 0:
