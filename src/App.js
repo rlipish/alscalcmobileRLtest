@@ -67,7 +67,7 @@ class App extends Component {
 
   };
 
-  // For toggle button change
+  // For toggle button change and assigning new state
   changedHandler = (event, id, finding) => {
     const regionIndex = this.state.regions.findIndex(p => {
       return p.id === id;
