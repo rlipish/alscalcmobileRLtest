@@ -18,7 +18,7 @@ import pink from "@material-ui/core/colors/pink";
 
 class App extends Component {
   constructor(props) {
-    // Super means will get props from App (from the parent class)
+    // Super means will get props from Component (from the parent class). JavaScript enforces that if you want to use this in a constructor, you have to call super first
     super(props);
     this.results = new Results();
     this.elEDiag = null;
