@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Toggle } from "react-toggle-component";
+// import { Toggle } from "react-toggle-component";
+import { Toggle } from "react-toggle";
+
 import Results from "./Model/Results";
 import ElEscorial from "./Model/ElEscorial";
 import AirlieHouse from "./Model/AirlieHouse";
