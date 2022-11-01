@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-// import { Toggle } from "react-toggle-component";
-import { Toggle } from "react-toggle";
-
+// import { Toggle } from "react-toggle-component"; //old one 
+// import { Toggle } from "react-toggle";
+import Toggle from 'react-toggle' //new react toggle
+import "react-toggle/style.css"
 import Results from "./Model/Results";
 import ElEscorial from "./Model/ElEscorial";
 import AirlieHouse from "./Model/AirlieHouse";
@@ -259,16 +260,25 @@ class App extends Component {
 
                 <span className="toggle">
                   <Toggle
-                    name={region.id + "umn"}
+                   icons={false}
+
+                   name={region.id + "umn"}
                     onChange={event => this.changedHandler(event, region.id, 0)}
                     // umn defined in class regions at the beginning
                     checked={region.umn}
                   />
                 </span>
 
+                {/* <Toggle
+    defaultChecked={this.state.tofuIsReady}
+    icons={false}
+    onChange={this.handleTofuChange} /> */}
+
                 <span className="toggle">
                   <Toggle
                     className="toggle"
+                    icons={false}
+
                     name={region.id + "lmn"}
                     onChange={event => this.changedHandler(event, region.id, 1)}
                     checked={region.lmn}
@@ -320,6 +330,8 @@ class App extends Component {
                 <span className="toggle">
                   <Toggle
                     className="toggle"
+                    icons={false}
+
                     name={region.id + "fibs"}
                     onChange={event => this.changedHandler(event, region.id, 2)}
                     checked={region.fibs}
@@ -329,6 +341,8 @@ class App extends Component {
                 <span className="toggle">
                   <Toggle
                     className="toggle"
+                    icons={false}
+
                     name={region.id + "fasics"}
                     onChange={event => this.changedHandler(event, region.id, 3)}
                     checked={region.fasics}
@@ -338,6 +352,8 @@ class App extends Component {
                 <span className="toggle">
                   <Toggle
                     className="toggle"
+                    icons={false}
+
                     name={region.id + "chronic"}
                     onChange={event => this.changedHandler(event, region.id, 4)}
                     checked={region.chronicDenerv}
