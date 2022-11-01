@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/alscalcmobileRLtest/static/css/main.1d98a6ff.chunk.css",
-    "main.js": "/alscalcmobileRLtest/static/js/main.63082235.chunk.js",
-    "main.js.map": "/alscalcmobileRLtest/static/js/main.63082235.chunk.js.map",
+    "main.js": "/alscalcmobileRLtest/static/js/main.42affc7f.chunk.js",
+    "main.js.map": "/alscalcmobileRLtest/static/js/main.42affc7f.chunk.js.map",
     "runtime~main.js": "/alscalcmobileRLtest/static/js/runtime~main.71a3f89e.js",
     "runtime~main.js.map": "/alscalcmobileRLtest/static/js/runtime~main.71a3f89e.js.map",
-    "static/js/2.df7e24c9.chunk.js": "/alscalcmobileRLtest/static/js/2.df7e24c9.chunk.js",
-    "static/js/2.df7e24c9.chunk.js.map": "/alscalcmobileRLtest/static/js/2.df7e24c9.chunk.js.map",
+    "static/css/2.ad109a12.chunk.css": "/alscalcmobileRLtest/static/css/2.ad109a12.chunk.css",
+    "static/js/2.13c278b1.chunk.js": "/alscalcmobileRLtest/static/js/2.13c278b1.chunk.js",
+    "static/js/2.13c278b1.chunk.js.map": "/alscalcmobileRLtest/static/js/2.13c278b1.chunk.js.map",
     "index.html": "/alscalcmobileRLtest/index.html",
-    "precache-manifest.c26c7a96f7d64f1dfac99b1e791f5f85.js": "/alscalcmobileRLtest/precache-manifest.c26c7a96f7d64f1dfac99b1e791f5f85.js",
+    "precache-manifest.213b75bcae2e97631145eb73d7a02bfe.js": "/alscalcmobileRLtest/precache-manifest.213b75bcae2e97631145eb73d7a02bfe.js",
     "service-worker.js": "/alscalcmobileRLtest/service-worker.js",
+    "static/css/2.ad109a12.chunk.css.map": "/alscalcmobileRLtest/static/css/2.ad109a12.chunk.css.map",
     "static/css/main.1d98a6ff.chunk.css.map": "/alscalcmobileRLtest/static/css/main.1d98a6ff.chunk.css.map"
   }
 }
