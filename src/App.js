@@ -536,8 +536,11 @@ console.log("RevealResults: " + this.state.revealResults);
     return (
       <div>
         <div className="title">
+        <div className="App-header">
+
           {/* Title at the top of the page */}
           <h1>ALS Calculator</h1>
+        </div>
         </div>
 
         <Panel findings={findings} findings1={findings1} results={results} final={final} changed={this.showResults} />
