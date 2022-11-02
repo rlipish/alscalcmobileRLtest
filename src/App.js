@@ -393,8 +393,7 @@ class App extends Component {
 
       diagnosisResult = (
         <div className="diagResults">
-          {/* This div class name is not found */}
-          <div className="rostralFinding">
+          <div className="rostralFinding">  {/* This div class name is not found ? not used */}
             {/* Statement on whether or UMN or LMN or null */}
             <p>{this.getmostRostralFinding()}</p>
           </div>
