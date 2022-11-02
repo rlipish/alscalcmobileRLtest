@@ -80,10 +80,10 @@ body {
   margin-top: 13px;
   line-height: 25px;
   /* space top row titles apart */
-  width: 23%;
+  width: 27vh;
   text-align: left;
   /* moves top row to the left */
-  left: 27%;
+  left: 30vh;
   /* background-color: aqua; */
 }
 
