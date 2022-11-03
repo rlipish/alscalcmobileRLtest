@@ -98,6 +98,7 @@ body {
 /* toggle buttons spacing */
 .toggle {
   display: inline-block;
+  top: 5px;
   width: 23%;
   border: solid orange;
 

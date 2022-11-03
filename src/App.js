@@ -276,7 +276,7 @@ class App extends Component {
 
                 <span className="toggle">
                   <Toggle
-                    className="toggle"
+                    // className="toggle"
                     icons={false}
 
                     name={region.id + "lmn"}
@@ -327,7 +327,7 @@ class App extends Component {
               <div key={region.id}>
                 <span className="regionName">{region.id}</span>
 
-                <span className="toggle">
+                <span>
                   <Toggle
                     className="toggle"
                     icons={false}
