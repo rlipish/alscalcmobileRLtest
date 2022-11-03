@@ -42,8 +42,6 @@ body {
   text-align: left;
   /* font size of regions */
   font-size: calc(3.5vmin);
-  border: solid pink;
-
 
 }
 
@@ -58,16 +56,12 @@ body {
   top: 0px;
   /* font size of the text on top row and additional text at the bottom */
   font-size: calc(3.5vmin);
-  border: solid purple;
-
 }
 
 .selectors {
   position: absolute;
   width: 100%;
   top: 75px;
-  border: solid green;
-
 }
 
 .titles {
@@ -75,7 +69,6 @@ body {
   width: 100%;
   /* doesn't do anything */
   height: 70px;
-  border: solid blue;
 
   /* background-color: #fb61ae; */
 }
@@ -90,8 +83,7 @@ body {
   width: 23%;
   text-align: left;
   /* moves top row to the left */
-  left: calc(23% + 24px);
-  border: solid red;
+  left: 27%;
   /* background-color: aqua; */
 }
 
@@ -99,8 +91,6 @@ body {
 .toggle {
   display: inline-block;
   width: 23%;
-  border: solid orange;
-
   /* background-color:violet ; */
 }
 
