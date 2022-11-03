@@ -1,0 +1,198 @@
+.App {
+  text-align: center;
+
+}
+
+.App-header {
+  background-color: #282c34;
+height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body {
+  background-color: #f5f2f0;
+}
+
+.title {
+/*   position: absolute;
+ */  text-align: center;
+/*   top: 0px;
+  width: 90%;
+  background-color: #363636;
+  color: #fff;
+ */}
+
+/* toggle buttons initial spacing away from regions */
+.regionName {
+  display: inline-block;
+  padding: 1px;
+  margin: 10px;
+  height: 3vh;
+  /* toggle buttons initial spacing away from regions */
+  width: 23%;
+  text-align: left;
+  /* font size of regions */
+  font-size: calc(3.5vmin);
+  border: solid pink;
+
+
+}
+
+.physical {
+  display: grid;
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  /* height: 475px; */
+  overflow: hidden;
+  /* background-color: #61dafb; */
+  top: 0px;
+  /* font size of the text on top row and additional text at the bottom */
+  font-size: calc(3.5vmin);
+  border: solid purple;
+
+}
+
+.selectors {
+  position: absolute;
+  width: 100%;
+  top: 75px;
+  border: solid green;
+
+}
+
+.titles {
+  position: absolute;
+  width: 100%;
+  /* doesn't do anything */
+  height: 70px;
+  border: solid blue;
+
+  /* background-color: #fb61ae; */
+}
+
+/* table title heading width etc */
+.region {
+  position: relative;
+  display: inline-block;
+  margin-top: 13px;
+  line-height: 25px;
+  /* space top row titles apart */
+  width: 23%;
+  text-align: left;
+  /* moves top row to the left */
+  left: 27%;
+  border: solid red;
+  /* background-color: aqua; */
+}
+
+/* toggle buttons spacing */
+.toggle {
+  display: inline-block;
+  width: 23%;
+  border: solid orange;
+
+  /* background-color:violet ; */
+}
+
+.excluded {
+  position: absolute;
+  width: 100%;
+  top: 330px;
+  padding: 0px;
+  margin: 10px;
+  /* background-color: #61dafb; */
+}
+
+.gene {
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+  padding: 0px;
+  margin: 10px;
+  /* background-color: #61dafb; */
+}
+
+.excludedToggle {
+  display: inline-block;
+  left: 50px;
+  /* background-color: bisque; */
+}
+
+.geneToggle {
+  display: inline-block;
+  left: 50px;
+  /* background-color: bisque; */
+}
+
+.reset {
+  position: absolute;
+  top: 380px;
+  right: 10%;
+}
+
+.tilt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 10%;
+  /* background-color: aquamarine; */
+}
+
+.tiltButtons {
+  position: relative;
+  top: 75%;
+  margin: 15px;
+  /* left: 50%; */
+  /* background-color: coral; */
+}
+
+.prog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  /* background-color: aquamarine; */
+}
+
+.progButtons {
+  position: relative;
+  top: 75%;
+  margin: 15px;
+  /* left: 50%; */
+  /* background-color: coral; */
+}
+
+/* For the third page Additional */
+.results {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-right: 20px;
+  margin-left: 20px;
+  /* background-color: aquamarine; */
+}
+
+/* For the last page Calculation */
+.diagResults {
+  position: absolute;
+  /* background-color: coral; */
+  margin-right: 20px;
+  margin-left: 20px;
+
+}
