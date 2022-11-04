@@ -12,8 +12,6 @@ class ElEscorial {
     this.spinalRegionsWithLMN = this.countSpinalRegions("lmn");
 
     this.UMNAndLMNInBrainstem = this.containsTwoFindingsInOneRegion("umn", "lmn", "Brainstem");
-    this.mostRostralFinding = this.findMostRostralFinding();
-
   }
 
   calculateDiagnosis() {
@@ -46,9 +44,7 @@ class ElEscorial {
     if (
       this.regionsWithUMN >= 2 &&
       this.regionsWithLMN >= 2 &&
-      // (this.UMNLevel < this.LMNLevel || this.selections.tilt)
-      (this.mostRostralFinding === "UMN" || (this.mostRostralFinding === "uncertain" && this.selections.tilt))
-
+      (this.UMNLevel < this.LMNLevel || this.selections.tilt)
     ) {
       return {
         diagnosis: "Probable ALS",
@@ -154,45 +150,6 @@ class ElEscorial {
 
     return this.selections.regions[regionIndex][finding];
   }
-
-  findMostRostralFinding() {
-    const highestUMNFinding = this.calculateHighestPhysicalLevel("umn");
-    const highestLMNFinding = this.calculateHighestPhysicalLevel("lmn");
-
-    const highestFasicsFinding = this.calculateHighestPhysicalLevel("fasics");
-    const highestFibsFinding = this.calculateHighestPhysicalLevel("fibs");
-    const highestChronicDenervFinding = this.calculateHighestPhysicalLevel("chronicDenerv");
-
-    let highestEMGFinding = Math.min(...[highestFasicsFinding, highestFibsFinding, highestChronicDenervFinding]);
-
-    if (highestLMNFinding < highestUMNFinding) {
-      return "LMN";
-    }
-
-    if (highestUMNFinding < Math.min(...[highestLMNFinding, highestEMGFinding])) {
-      return "UMN";
-    }
-
-    if (highestUMNFinding === 5) {
-      return "not selected";
-    }
-
-    return "uncertain";
-  }
-
-  isTiltConfirmationNeeded() {
-    return this.mostRostralFinding === "uncertain";
-  }
-
-  calculateHighestPhysicalLevel(finding) {
-    for (let i = 0; i < this.selections.regions.length; i++) {
-      if (this.isPhysicalFindingPresent(finding, this.selections.regions[i].id)) {
-        return i;
-      }
-    }
-    return 5;
-  }
-
 }
 
 export default ElEscorial;
