@@ -87,7 +87,7 @@ body {
   margin-top: 13px;
   line-height: 25px;
   /* space top row titles apart */
-  width: 23%;
+  width: 20%;
   text-align: left;
   /* moves top row to the left */
   left: calc(23% + 12px);
@@ -99,7 +99,7 @@ body {
 .toggle {
   display: inline-block;
   top: 5px;
-  width: 23%;
+  width: 20%;
   border: solid orange;
 
   /* background-color:violet ; */
