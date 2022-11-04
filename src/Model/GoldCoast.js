@@ -6,6 +6,14 @@ class GoldCoast extends AwajiShima {
 
     console.log("Progressive: " + this.selections.progressive);
 
+    if (((this.regionsWithUMN >= 2 && this.regionsWithLMN >= 1) || (this.regionsWithUMN >= 1 && this.regionsWithLMN >= 2)) && 
+     this.selections.progressive) {
+    return {
+      diagnosis:  "ALS",
+      explanation: `This scenario is classified as  
+                  ALS as there is upper and lower motor neuron dysfunction noted in at least 1 body region.`
+    };
+  }
 
     if (this.regionsWithLMN >= 2 && 
          this.selections.progressive) {
@@ -21,7 +29,8 @@ class GoldCoast extends AwajiShima {
       return {
         diagnosis:  "ALS",
         explanation: `This scenario is classified as  
-                    ALS as there is upper and lower motor neuron dysfunction noted in the same body region.`
+                    ALS as there is upper and lower motor neuron dysfunction noted in the same body region 
+                    with only one region being involved.`
       };
     }
     

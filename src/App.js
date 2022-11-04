@@ -167,7 +167,8 @@ class App extends Component {
         case true:
           return `The most rostral findings were chosen to be UMN.`;
         case false:
-          return `The most rostral findings were chosen to be LMN.`;
+          return `The most rostral findings were chosen to be LMN. 
+          NB: A diagnosis of Clinically Probable ALS cannot be made when LMN findings are rostral to UMN findings.`;
         default:
           return null;
       }
@@ -177,7 +178,7 @@ class App extends Component {
       `Based on the selected values, the program determined 
             that the most rostral findings were ` +
       this.mostRostralFinding +
-      "."
+      ". NB: A diagnosis of Clinically Probable ALS cannot be made when LMN findings are rostral to UMN findings."
     );
   };
 
