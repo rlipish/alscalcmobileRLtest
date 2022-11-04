@@ -17,7 +17,8 @@ class AirlieHouse extends ElEscorial {
     console.log("Most rostral: " + this.mostRostralFinding);
     console.log("Tilt: " + this.selections.tilt);
 
-    if (this.regionsWithUMN >= 1 && this.regionsWithLMN >= 1 && this.selections.gene) {
+    if (this.regionsWithUMN >= 1 && this.regionsWithLMN >= 1 && this.selections.gene && 
+      this.selections.progressive) {
       return {
         diagnosis: "Clinically Definite Familial ALS - Laboratory Supported",
         explanation: `This scenario is classified as Clinically Definite Familial
@@ -30,7 +31,8 @@ class AirlieHouse extends ElEscorial {
     if (
       this.UMNAndLMNInBrainstemByPhysicalOnly &&
       this.spinalRegionsWithUMN >= 2 &&
-      this.spinalRegionsWithLMNByPhysicalOnly >= 2
+      this.spinalRegionsWithLMNByPhysicalOnly >= 2 && 
+      this.selections.progressive
     ) {
       return {
         diagnosis: "Clinically Definite ALS",
@@ -41,7 +43,8 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMNByPhysicalOnly === 3) {
+    if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMNByPhysicalOnly === 3 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Clinically Definite ALS",
         explanation: `This scenario is classified as Clinically Definite ALS as
@@ -53,7 +56,8 @@ class AirlieHouse extends ElEscorial {
     if (
       this.regionsWithUMN >= 2 &&
       this.regionsWithLMNByPhysicalOnly >= 2 &&
-      (this.mostRostralFinding === "UMN" || (this.mostRostralFinding === "uncertain" && this.selections.tilt))
+      (this.mostRostralFinding === "UMN" || (this.mostRostralFinding === "uncertain" && this.selections.tilt)) && 
+      this.selections.progressive
     ) {
       return {
         diagnosis: "Clinically Probable ALS",
@@ -68,7 +72,8 @@ class AirlieHouse extends ElEscorial {
       (this.regionsWithUMN === 1 && this.regionsWithLMNByPhysicalOnly === 1 && 
         this.UMNLevel === this.LMNLevel && this.selections.excluded) ||
       (this.regionsWithUMN >= 1 &&
-        this.regionsWithLMNByEMGOnly >= 2 && this.selections.excluded)
+        this.regionsWithLMNByEMGOnly >= 2 && this.selections.excluded) && 
+        this.selections.progressive
     ) {
       return {
         diagnosis: "Clinically Probable ALS - Laboratory Supported",
@@ -81,7 +86,8 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    if (this.areBothFindingsPresentInOnePhysicalRegion()) {
+    if (this.areBothFindingsPresentInOnePhysicalRegion() && 
+    this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
         explanation: `This scenario is classified as Clinically Possible 
@@ -90,7 +96,8 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0) {
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
         explanation: `This scenario is classified as Possible ALS as there are upper motor
@@ -98,7 +105,8 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0) {
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS or NIL - Please see explanation below",
         explanation: `This scenario is classified as Possible ALS as there are upper motor
@@ -109,7 +117,8 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1) {
+    if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
         explanation: `This scenario is classified as Clinically Possible 

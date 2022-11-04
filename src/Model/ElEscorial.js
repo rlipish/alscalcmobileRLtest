@@ -17,7 +17,8 @@ class ElEscorial {
   }
 
   calculateDiagnosis() {
-    if (this.UMNAndLMNInBrainstem && this.spinalRegionsWithUMN >= 2 && this.spinalRegionsWithLMN >= 2) {
+    if (this.UMNAndLMNInBrainstem && this.spinalRegionsWithUMN >= 2 && this.spinalRegionsWithLMN >= 2 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Definite ALS",
         explanation: `This scenario is classified as definite ALS as there are upper motor 
@@ -26,7 +27,8 @@ class ElEscorial {
       };
     }
 
-    if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMN === 3) {
+    if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMN === 3 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Definite ALS",
         explanation: `This scenario is classified as Definite ALS as there are upper motor 
@@ -34,7 +36,8 @@ class ElEscorial {
       };
     }
 
-    if (this.regionsWithUMN >= 2 && this.regionsWithLMN >= 2 && this.UMNLevel < this.LMNLevel) {
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN >= 2 && this.UMNLevel < this.LMNLevel && 
+      this.selections.progressive) {
       return {
         diagnosis: "Probable ALS",
         explanation: `This scenario is classified as Probable ALS as there are upper motor 
@@ -47,8 +50,8 @@ class ElEscorial {
       this.regionsWithUMN >= 2 &&
       this.regionsWithLMN >= 2 &&
       // (this.UMNLevel < this.LMNLevel || this.selections.tilt)
-      (this.mostRostralFinding === "UMN" || (this.mostRostralFinding === "uncertain" && this.selections.tilt))
-
+      (this.mostRostralFinding === "UMN" || (this.mostRostralFinding === "uncertain" && this.selections.tilt)) && 
+      this.selections.progressive
     ) {
       return {
         diagnosis: "Probable ALS",
@@ -58,7 +61,8 @@ class ElEscorial {
       };
     }
 
-    if (this.areBothFindingsPresentInOneRegion()) {
+    if (this.areBothFindingsPresentInOneRegion() && 
+    this.selections.progressive) {
       return {
         diagnosis: "Possible ALS",
         explanation: `This scenario is classified as Possible ALS as there are upper motor 
@@ -66,7 +70,8 @@ class ElEscorial {
       };
     }
 
-    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0) {
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Possible ALS",
         explanation: `This scenario is classified as Possible ALS as there are upper motor
@@ -74,7 +79,8 @@ class ElEscorial {
       };
     }
 
-    if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0) {
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Possible ALS or NIL - Please see explanation below",
         explanation: `This scenario is classified as Possible ALS as there are upper motor
@@ -85,7 +91,8 @@ class ElEscorial {
       };
     }
 
-    if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1) {
+    if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Possible ALS",
         explanation: `This scenario is classified as Possible ALS as lower motor neuron 
@@ -93,7 +100,8 @@ class ElEscorial {
       };
     }
 
-    if (this.regionsWithLMN >= 2) {
+    if (this.regionsWithLMN >= 2 && 
+      this.selections.progressive) {
       return {
         diagnosis: "Suspected ALS",
         explanation: `This scenario is classified as Suspected ALS as there are lower 

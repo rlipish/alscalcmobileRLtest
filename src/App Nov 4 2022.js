@@ -173,14 +173,6 @@ class App extends Component {
           return null;
       }
     }
-if (this.mostRostralFinding === "UMN") {
-  return (
-    `Based on the selected values, the program determined 
-          that the most rostral findings were ` +
-    this.mostRostralFinding +
-    ".");
-
-  }
 
     return (
       `Based on the selected values, the program determined 
