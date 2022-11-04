@@ -8,7 +8,6 @@ class AirlieHouse extends ElEscorial {
     this.regionsWithLMNByEMGOnly = this.countLMNRegionsByEMG();
     this.spinalRegionsWithLMNByPhysicalOnly = this.countPhysicalSpinalRegions("lmn");
     this.UMNAndLMNInBrainstemByPhysicalOnly = this.containsTwoPhysicalFindingsInOneRegion("umn", "lmn", "Brainstem");
-    this.mostRostralFinding = this.findMostRostralFinding();
   }
 
   calculateDiagnosis() {
@@ -126,43 +125,7 @@ class AirlieHouse extends ElEscorial {
     };
   }
 
-  findMostRostralFinding() {
-    const highestUMNFinding = this.calculateHighestPhysicalLevel("umn");
-    const highestLMNFinding = this.calculateHighestPhysicalLevel("lmn");
 
-    const highestFasicsFinding = this.calculateHighestPhysicalLevel("fasics");
-    const highestFibsFinding = this.calculateHighestPhysicalLevel("fibs");
-    const highestChronicDenervFinding = this.calculateHighestPhysicalLevel("chronicDenerv");
-
-    let highestEMGFinding = Math.min(...[highestFasicsFinding, highestFibsFinding, highestChronicDenervFinding]);
-
-    if (highestLMNFinding < highestUMNFinding) {
-      return "LMN";
-    }
-
-    if (highestUMNFinding < Math.min(...[highestLMNFinding, highestEMGFinding])) {
-      return "UMN";
-    }
-
-    if (highestUMNFinding === 5) {
-      return "not selected";
-    }
-
-    return "uncertain";
-  }
-
-  isTiltConfirmationNeeded() {
-    return this.mostRostralFinding === "uncertain";
-  }
-
-  calculateHighestPhysicalLevel(finding) {
-    for (let i = 0; i < this.selections.regions.length; i++) {
-      if (this.isPhysicalFindingPresent(finding, this.selections.regions[i].id)) {
-        return i;
-      }
-    }
-    return 5;
-  }
 
   countPhysicalRegions(finding) {
     let count = 0;
