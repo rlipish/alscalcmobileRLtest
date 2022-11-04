@@ -258,16 +258,16 @@ class App extends Component {
                 {/* Region.id e.g. cervical */}
                 <span className="regionName">{region.id}</span>
 
-                <span className="toggle">
+                {/* <span className="toggle"> */}
                   <Toggle
                    icons={false}
-
+                   className="toggle"
                    name={region.id + "umn"}
                     onChange={event => this.changedHandler(event, region.id, 0)}
                     // umn defined in class regions at the beginning
                     checked={region.umn}
                   />
-                </span>
+                {/* </span> */}
 
                 {/* <Toggle
     defaultChecked={this.state.tofuIsReady}
@@ -276,7 +276,7 @@ class App extends Component {
 
                 <span className="toggle">
                   <Toggle
-                    // className="toggle"
+                    className="toggle"
                     icons={false}
 
                     name={region.id + "lmn"}

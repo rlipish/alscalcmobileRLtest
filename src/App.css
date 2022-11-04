@@ -38,7 +38,7 @@ body {
   margin: 10px;
   height: 3vh;
   /* toggle buttons initial spacing away from regions */
-  width: 23%;
+  width: 21%;
   text-align: left;
   /* font size of regions */
   font-size: calc(3.5vmin);
@@ -90,7 +90,7 @@ body {
   width: 23%;
   text-align: left;
   /* moves top row to the left */
-  left: calc(23% + 24px);
+  left: calc(23% + 12px);
   border: solid red;
   /* background-color: aqua; */
 }
