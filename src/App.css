@@ -42,7 +42,7 @@ body {
   text-align: left;
   /* font size of regions */
   font-size: calc(3.5vmin);
-  border: solid pink;
+  /* border: solid pink; */
 
 
 }
@@ -58,7 +58,7 @@ body {
   top: 0px;
   /* font size of the text on top row and additional text at the bottom */
   font-size: calc(3.5vmin);
-  border: solid purple;
+  /* border: solid purple; */
 
 }
 
@@ -66,7 +66,7 @@ body {
   position: absolute;
   width: 100%;
   top: 75px;
-  border: solid green;
+  /* border: solid green; */
 
 }
 
@@ -75,7 +75,7 @@ body {
   width: 100%;
   /* doesn't do anything */
   height: 70px;
-  border: solid blue;
+  /* border: solid blue; */
 
   /* background-color: #fb61ae; */
 }
@@ -91,7 +91,7 @@ body {
   text-align: left;
   /* moves top row to the left */
   left: calc(23% + 12px);
-  border: solid red;
+  /* border: solid red; */
   /* background-color: aqua; */
 }
 
@@ -100,7 +100,7 @@ body {
   display: inline-block;
   top: 5px;
   width: 20%;
-  border: solid orange;
+  /* border: solid orange; */
 
   /* background-color:violet ; */
 }
