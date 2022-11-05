@@ -70,7 +70,7 @@ class App extends Component {
 
   };
 
-  // For toggle button change and assigning new state
+  // For toggle button change and assigning new state. an arrow function to create the method will ensure the function has the proper this context when running the update.
   changedHandler = (event, id, finding) => {
     const regionIndex = this.state.regions.findIndex(p => {
       return p.id === id;
@@ -104,9 +104,12 @@ class App extends Component {
 
     const regions = [...this.state.regions];
 
+// region refers to all values in that region eg brainstem
     regions[regionIndex] = region;
 
+    // state changes at this point
     this.setState({ regions: regions });
+
   };
 
   excludedButtonHandler = event => {
