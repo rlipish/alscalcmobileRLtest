@@ -135,7 +135,7 @@ body {
   bottom: calc(20px + 4vh);
 /* top: 380px; */
   right: 15%;
-  border: solid yellow;
+  /* border: solid yellow; */
 }
 
 .tilt {
