@@ -137,8 +137,8 @@ body {
 
 .reset {
   position: absolute;
-  top: 65%;
-  right: 10%;
+  top: calc(360px + 10%);
+  right: 15%;
 }
 
 .tilt {
