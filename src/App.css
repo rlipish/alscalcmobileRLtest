@@ -41,7 +41,7 @@ body {
   width: 21%;
   text-align: left;
   /* font size of regions */
-  font-size: calc(3.25vmin);
+  font-size: clamp(3.25vmin, 2.2vmin + 5px, 3.5vmin);
   /* border: solid pink; */
 
 
