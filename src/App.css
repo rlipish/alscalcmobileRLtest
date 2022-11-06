@@ -41,8 +41,8 @@ body {
   width: 21%;
   text-align: left;
   /* font size of regions */
-  /* font-size: clamp(3.25vmin, 2.2vmin + 5px, 3.5vmin); */
-  font-size: calc(3.5vmin);
+  font-size: clamp(3.25vmin, 2.2vmin + 5px, 3.5vmin);
+  /* font-size: calc(3.5vmin); */
 
   /* border: solid pink; */
 
@@ -132,8 +132,8 @@ body {
 
 .reset {
   position: absolute;
-  /* bottom: calc(20px + 7vh); */
-top: 380px;
+  bottom: calc(20px + 7vh);
+/* top: 380px; */
   right: 15%;
   border: solid yellow;
 }
