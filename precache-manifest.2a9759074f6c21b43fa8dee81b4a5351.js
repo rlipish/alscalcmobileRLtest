@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a7963c691fd2546e76d9a8b1c293d419",
+    "revision": "8477ac5d0ee89795f6cd5244fbbde166",
     "url": "/alscalcmobileRLtest/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/alscalcmobileRLtest/static/css/2.ad109a12.chunk.css"
   },
   {
-    "revision": "92da600a4155d4cbf08a",
-    "url": "/alscalcmobileRLtest/static/css/main.1e86b019.chunk.css"
+    "revision": "a4596e6c2926e786579e",
+    "url": "/alscalcmobileRLtest/static/css/main.09042eb1.chunk.css"
   },
   {
     "revision": "be342d727819ee09010f",
     "url": "/alscalcmobileRLtest/static/js/2.13c278b1.chunk.js"
   },
   {
-    "revision": "92da600a4155d4cbf08a",
+    "revision": "a4596e6c2926e786579e",
     "url": "/alscalcmobileRLtest/static/js/main.1e8da618.chunk.js"
   },
   {
