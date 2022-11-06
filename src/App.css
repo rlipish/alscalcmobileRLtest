@@ -91,7 +91,7 @@ body {
   width: 20%;
   text-align: left;
   /* moves top row to the left */
-  left: calc(23% + 13px);
+  left: calc(23% + 15px);
   /* border: solid red; */
 }
 
@@ -132,7 +132,7 @@ body {
 
 .reset {
   position: absolute;
-  bottom: calc(20px + 5vh);
+  bottom: calc(20px + 4vh);
 /* top: 380px; */
   right: 15%;
   border: solid yellow;
