@@ -140,7 +140,7 @@ body {
 
 .tilt {
   display: grid;
-  justify-content: center;
+  /* justify-content: center; */
   /* align-items: center; */
   position: relative;
   width: 95%;
@@ -154,7 +154,7 @@ border: solid greenyellow;
   position: relative;
   /* top: 0%; */
   margin: 15px;
-  justify-content: center;
+  /* justify-content: center; */
   width: 130px;
 
   /* left: 50%; */
@@ -163,7 +163,7 @@ border: solid greenyellow;
 
 .prog {
   display: grid;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   position: relative;
   margin: 15px;
@@ -189,10 +189,12 @@ border: solid greenyellow;
   display: grid;
   position: absolute;
   overflow: auto;
+  max-width: 800px;
+
   width: 100%;
   height: 95%;
-  margin-right: 20px;
-  margin-left: 20px;
+  /* margin-right: 20px; */
+  /* margin-left: 20px; */
   /* margin-top: 20px; */
   border: solid teal;
 }
