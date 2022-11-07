@@ -456,7 +456,6 @@ if (this.mostRostralFinding === "UMN") {
       Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, 
       preceded by normal motor function?
       <br />
-
         <div className="progButtons">
           <Button variant="contained" color={this.state.yesColorP} onClick={() => this.yesButtonHandlerProg()}>
             Yes
@@ -505,11 +504,12 @@ if (this.mostRostralFinding === "UMN") {
 
     if (this.state.isTiltNeeded) {
       results = (
-        <div className="results">
+ <div className="results">
           <div className="tilt">
             On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron
             findings?
             {/* <br /> */}
+
             <div className="tiltButtons">
               <Button variant="contained" color={this.state.yesColor} onClick={() => this.yesButtonHandler()}>
                 Yes
@@ -519,7 +519,7 @@ if (this.mostRostralFinding === "UMN") {
                 No
               </Button>
             </div>
-          </div>
+            </div>
 
 {progdiv}
 {exdiv}

@@ -139,47 +139,62 @@ body {
 }
 
 .tilt {
-  display: flex;
+  display: grid;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  /* height: 100%; */
+  margin: 15px;
   top: 10%;
+border: solid greenyellow;
 }
 
 .tiltButtons {
   position: relative;
-  top: 75%;
+  /* top: 0%; */
   margin: 15px;
+  justify-content: center;
+  width: 130px;
+
   /* left: 50%; */
+  border: solid rebeccapurple;
 }
 
 .prog {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100%;
-  height: 100%;
-  top: 50%;
+  margin: 15px;
+
+  width: 95%;
+  /* height: 100%; */
+  /* top: 50%; */
+  border: solid saddlebrown;
 }
 
 .progButtons {
   position: relative;
-  top: 75%;
+  /* top: 75%; */
   margin: 15px;
+  justify-content: center;
+  width: 130px;
   /* left: 50%; */
+  border: solid slateblue;
 }
 
 /* For the third page Additional */
 .results {
-  position: relative;
+  display: grid;
+  position: absolute;
+  overflow: auto;
   width: 100%;
-  height: 100%;
+  height: 95%;
   margin-right: 20px;
   margin-left: 20px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  border: solid teal;
 }
 
 /* For the last page Calculation */
