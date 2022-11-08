@@ -202,16 +202,6 @@ border: solid greenyellow;
   border: solid teal;
 }
 
-.results {
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-}
-.results::-webkit-scrollbar { /* WebKit */
-  width: 0;
-  height: 0;
-}
-
 /* For the 4th page Calculation */
 .final {
   display: grid;
@@ -226,17 +216,8 @@ max-height: 98%;
   /* margin-left: 20px; */
   /* margin-top: 20px; */
   border: solid teal;
-
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-
 }
 
-.final::-webkit-scrollbar { /* WebKit */
-  width: 0;
-  height: 0;
-}
 /* For the last page Calculation */
 .diagResults {
   display: grid;
