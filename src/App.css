@@ -61,6 +61,7 @@ body {
   /* font size of the text on top row and additional text at the bottom */
   font-size: calc(3.5vmin);
   /* border: solid purple; */
+  max-height: 98%;
 
 }
 
@@ -190,7 +191,8 @@ border: solid greenyellow;
   position: absolute;
   overflow: auto;
   max-width: 800px;
-
+  max-height: 98%;
+  /* overflow-y: hidden; */
   width: 100%;
   margin-bottom: 0px;
   /* height: 95%; */
@@ -200,10 +202,46 @@ border: solid greenyellow;
   border: solid teal;
 }
 
+.results {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+.results::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
+
+/* For the 4th page Calculation */
+.final {
+  display: grid;
+  position: absolute;
+  overflow: auto;
+  max-width: 800px;
+max-height: 98%;
+  width: 100%;
+  margin-bottom: 0px;
+  /* height: 95%; */
+  /* margin-right: 20px; */
+  /* margin-left: 20px; */
+  /* margin-top: 20px; */
+  border: solid teal;
+
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+
+}
+
+.final::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
 /* For the last page Calculation */
 .diagResults {
   display: grid;
   position: relative;
+  overflow-y: hidden;
   margin-right: 20px;
   margin-left: 20px;
   margin-bottom: 0px;

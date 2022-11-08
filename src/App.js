@@ -536,7 +536,7 @@ if (this.mostRostralFinding === "UMN") {
     }
 
     let final = (
-      <div className="results">
+      <div className="final">
         {diagnosisResult}
       </div>
          
