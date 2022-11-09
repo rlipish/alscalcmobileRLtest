@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-// import { Toggle } from "react-toggle-component"; //old one 
-// import { Toggle } from "react-toggle";
+import "./Scroll.css";
 import Toggle from 'react-toggle' //new react toggle
 import "react-toggle/style.css"
 import Results from "./Model/Results";
@@ -524,6 +523,8 @@ if (this.mostRostralFinding === "UMN") {
 {progdiv}
 {exdiv}
 {famdiv}
+<a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
+      </a>
         </div>
       );
     } else {
@@ -532,12 +533,18 @@ if (this.mostRostralFinding === "UMN") {
 {progdiv}
 {exdiv}
 {famdiv}
+<a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
+      </a>
+
         </div>;
     }
 
     let final = (
       <div className="final">
         {diagnosisResult}
+        <a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
+      </a>
+
       </div>
          
         );
