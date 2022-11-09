@@ -250,7 +250,7 @@ if (this.mostRostralFinding === "UMN") {
       return Math.round(window.innerHeight / (100 / vh));
     }  
     let ht100 = vhToPixels(100)
-    let ht = ht100 - 134
+    let ht = ht100 - 120
     let htpx = ht + 'px';
     let findings = (
       <div className="physical" style={{"height" : htpx}} >
