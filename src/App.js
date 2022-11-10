@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import "./Scroll.css";
 import Toggle from 'react-toggle' //new react toggle
 import "react-toggle/style.css"
 import Results from "./Model/Results";
