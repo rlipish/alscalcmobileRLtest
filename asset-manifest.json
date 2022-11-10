@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/alscalcmobileRLtest/static/css/main.d6db6b4e.css",
-    "main.js": "/alscalcmobileRLtest/static/js/main.e0102c2b.js",
+    "main.css": "/alscalcmobileRLtest/static/css/main.74e2a450.chunk.css",
+    "main.js": "/alscalcmobileRLtest/static/js/main.56fde362.chunk.js",
+    "main.js.map": "/alscalcmobileRLtest/static/js/main.56fde362.chunk.js.map",
+    "runtime~main.js": "/alscalcmobileRLtest/static/js/runtime~main.71a3f89e.js",
+    "runtime~main.js.map": "/alscalcmobileRLtest/static/js/runtime~main.71a3f89e.js.map",
+    "static/css/2.ad109a12.chunk.css": "/alscalcmobileRLtest/static/css/2.ad109a12.chunk.css",
+    "static/js/2.13c278b1.chunk.js": "/alscalcmobileRLtest/static/js/2.13c278b1.chunk.js",
+    "static/js/2.13c278b1.chunk.js.map": "/alscalcmobileRLtest/static/js/2.13c278b1.chunk.js.map",
     "index.html": "/alscalcmobileRLtest/index.html",
-    "main.d6db6b4e.css.map": "/alscalcmobileRLtest/static/css/main.d6db6b4e.css.map",
-    "main.e0102c2b.js.map": "/alscalcmobileRLtest/static/js/main.e0102c2b.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.d6db6b4e.css",
-    "static/js/main.e0102c2b.js"
-  ]
+    "precache-manifest.9465e1319ca2d606637ce8099e57baa0.js": "/alscalcmobileRLtest/precache-manifest.9465e1319ca2d606637ce8099e57baa0.js",
+    "service-worker.js": "/alscalcmobileRLtest/service-worker.js",
+    "static/css/2.ad109a12.chunk.css.map": "/alscalcmobileRLtest/static/css/2.ad109a12.chunk.css.map",
+    "static/css/main.74e2a450.chunk.css.map": "/alscalcmobileRLtest/static/css/main.74e2a450.chunk.css.map"
+  }
 }
