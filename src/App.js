@@ -523,8 +523,8 @@ if (this.mostRostralFinding === "UMN") {
 {progdiv}
 {exdiv}
 {famdiv}
-<a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
-      </a>
+
+<div class="arrow animated bounce"></div>
         </div>
       );
     } else {
@@ -533,8 +533,6 @@ if (this.mostRostralFinding === "UMN") {
 {progdiv}
 {exdiv}
 {famdiv}
-<a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
-      </a>
 
         </div>;
     }
@@ -542,8 +540,6 @@ if (this.mostRostralFinding === "UMN") {
     let final = (
       <div className="final">
         {diagnosisResult}
-        <a href="" class="scroll-down-link scroll-down-arrow" data-iconfont="ETmodules" data-icon>
-      </a>
 
       </div>
          

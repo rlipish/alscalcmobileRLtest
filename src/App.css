@@ -148,7 +148,7 @@ body {
   /* height: 100%; */
   margin: 15px;
   top: 10%;
-border: solid greenyellow;
+/* border: solid greenyellow; */
 }
 
 .tiltButtons {
@@ -159,7 +159,7 @@ border: solid greenyellow;
   width: 130px;
 
   /* left: 50%; */
-  border: solid rebeccapurple;
+  /* border: solid rebeccapurple; */
 }
 
 .prog {
@@ -172,7 +172,7 @@ border: solid greenyellow;
   width: 93%;
   /* height: 100%; */
   /* top: 50%; */
-  border: solid saddlebrown;
+  /* border: solid saddlebrown; */
 }
 
 .progButtons {
@@ -182,7 +182,7 @@ border: solid greenyellow;
   justify-content: center;
   width: 130px;
   /* left: 50%; */
-  border: solid slateblue;
+  /* border: solid slateblue; */
 }
 
 /* For the third page Additional */
@@ -191,7 +191,7 @@ border: solid greenyellow;
   position: absolute;
   overflow: auto;
   max-width: 800px;
-  max-height: 98%;
+  max-height: 99%;
   /* overflow-y: hidden; */
   width: 100%;
   margin-bottom: 0px;
@@ -199,7 +199,7 @@ border: solid greenyellow;
   /* margin-right: 20px; */
   /* margin-left: 20px; */
   /* margin-top: 20px; */
-  border: solid teal;
+  /* border: solid teal; */
 }
 
 /* For the 4th page Calculation */
@@ -208,14 +208,14 @@ border: solid greenyellow;
   position: absolute;
   overflow: auto;
   max-width: 800px;
-max-height: 98%;
+max-height: 99%;
   width: 100%;
   margin-bottom: 0px;
   /* height: 95%; */
   /* margin-right: 20px; */
   /* margin-left: 20px; */
   /* margin-top: 20px; */
-  border: solid teal;
+  /* border: solid teal; */
 }
 
 /* For the last page Calculation */
