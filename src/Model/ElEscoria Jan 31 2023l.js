@@ -27,7 +27,7 @@ class ElEscorial {
       };
     }
 
-    else if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMN === 3 && 
+    if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMN === 3 && 
       this.selections.progressive) {
       return {
         diagnosis: "Definite ALS",
@@ -36,7 +36,7 @@ class ElEscorial {
       };
     }
 
-    else if (this.regionsWithUMN >= 2 && this.regionsWithLMN >= 2 && this.UMNLevel < this.LMNLevel && 
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN >= 2 && this.UMNLevel < this.LMNLevel && 
       this.selections.progressive) {
       return {
         diagnosis: "Probable ALS",
@@ -46,7 +46,7 @@ class ElEscorial {
       };
     }
 
-    else if (
+    if (
       this.regionsWithUMN >= 2 &&
       this.regionsWithLMN >= 2 &&
       // (this.UMNLevel < this.LMNLevel || this.selections.tilt)
@@ -61,7 +61,7 @@ class ElEscorial {
       };
     }
 
-    else if (this.areBothFindingsPresentInOneRegion() && 
+    if (this.areBothFindingsPresentInOneRegion() && 
     this.selections.progressive) {
       return {
         diagnosis: "Possible ALS",
@@ -70,7 +70,7 @@ class ElEscorial {
       };
     }
 
-    else if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0 && 
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0 && 
       this.selections.progressive) {
       return {
         diagnosis: "Possible ALS",
@@ -79,7 +79,7 @@ class ElEscorial {
       };
     }
 
-    else if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0 && 
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0 && 
       this.selections.progressive) {
       return {
         diagnosis: "Possible ALS or NIL - Please see explanation below",
@@ -91,7 +91,7 @@ class ElEscorial {
       };
     }
 
-    else if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1 && 
+    if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1 && 
       this.selections.progressive) {
       return {
         diagnosis: "Possible ALS",
@@ -100,7 +100,7 @@ class ElEscorial {
       };
     }
 
-    else if (this.regionsWithLMN >= 2 && 
+    if (this.regionsWithLMN >= 2 && 
       this.selections.progressive) {
       return {
         diagnosis: "Suspected ALS",
@@ -109,13 +109,11 @@ class ElEscorial {
       };
     }
 
-    else {
     return {
       diagnosis: "--",
       explanation: `A valid diagnosis is not available for the selected findings based
                     on the El Escorial criteria.`
     };
-    }
   }
 
   calcHighestLevel(finding) {

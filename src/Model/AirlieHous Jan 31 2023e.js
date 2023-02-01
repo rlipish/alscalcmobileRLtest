@@ -28,7 +28,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else if (
+    if (
       this.UMNAndLMNInBrainstemByPhysicalOnly &&
       this.spinalRegionsWithUMN >= 2 &&
       this.spinalRegionsWithLMNByPhysicalOnly >= 2 && 
@@ -43,7 +43,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMNByPhysicalOnly === 3 && 
+    if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMNByPhysicalOnly === 3 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Definite ALS",
@@ -53,7 +53,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else if (
+    if (
       this.regionsWithUMN >= 2 &&
       this.regionsWithLMNByPhysicalOnly >= 2 &&
       (this.mostRostralFinding === "UMN" || (this.mostRostralFinding === "uncertain" && this.selections.tilt)) && 
@@ -68,7 +68,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else if (
+    if (
       ((this.regionsWithUMN === 1 && this.regionsWithLMNByPhysicalOnly === 1 && 
         this.UMNLevel === this.LMNLevel && this.selections.excluded) ||
       (this.regionsWithUMN >= 1 &&
@@ -86,7 +86,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else if (this.areBothFindingsPresentInOnePhysicalRegion() && 
+    if (this.areBothFindingsPresentInOnePhysicalRegion() && 
     this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
@@ -96,7 +96,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0 && 
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
@@ -105,7 +105,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0 && 
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS or NIL - Please see explanation below",
@@ -117,7 +117,7 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1 && 
+    if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
@@ -127,13 +127,11 @@ class AirlieHouse extends ElEscorial {
       };
     }
 
-    else {
     return {
       diagnosis: "--",
       explanation: `A valid diagnosis is not available for the selected findings based
                 on the El Escorial revised (Airlie House) criteria.`
     };
-    }
   }
 
 

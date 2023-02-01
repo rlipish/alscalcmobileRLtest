@@ -14,7 +14,7 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    else if (this.UMNAndLMNInBrainstem && this.spinalRegionsWithUMN >= 2 && this.spinalRegionsWithLMN >= 2 && 
+    if (this.UMNAndLMNInBrainstem && this.spinalRegionsWithUMN >= 2 && this.spinalRegionsWithLMN >= 2 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Definite ALS",
@@ -25,7 +25,7 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    else if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMN >= 3 && 
+    if (this.spinalRegionsWithUMN === 3 && this.spinalRegionsWithLMN >= 3 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Definite ALS",
@@ -34,7 +34,7 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    else if (
+    if (
       this.regionsWithUMN >= 2 &&
       this.regionsWithLMN >= 2 &&
       (this.mostRostralFinding === "UMN" || (this.mostRostralFinding === "uncertain" && this.selections.tilt)) && 
@@ -48,7 +48,7 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    else if (this.areBothFindingsPresentInOneRegion() && 
+    if (this.areBothFindingsPresentInOneRegion() && 
     this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
@@ -57,7 +57,7 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    else if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0 && 
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN === 0 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
@@ -66,7 +66,7 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    else if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0 && 
+    if (this.regionsWithUMN >= 2 && this.regionsWithLMN > 0 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS or NIL - Please see explanation below",
@@ -78,7 +78,7 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    else if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1 && 
+    if (this.UMNLevel > this.LMNLevel && this.regionsWithUMN > 1 && this.regionsWithLMN > 1 && 
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
@@ -87,15 +87,13 @@ class AwajiShima extends AirlieHouse {
       };
     }
 
-    else {
-      return {
+    return {
       diagnosis: "--",
       explanation: `A valid diagnosis is not available for the selected findings based
                 on the Awaji-Shima criteria.`
     };
-    }
   }
-  
+
   isLMNFindingPresent(region) {
     const regionIndex = this.selections.regions.findIndex(r => {
       return r.id === region;

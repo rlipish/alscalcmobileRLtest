@@ -15,7 +15,7 @@ class GoldCoast extends AwajiShima {
     };
   }
 
-    else if (this.regionsWithLMN >= 2 && 
+    if (this.regionsWithLMN >= 2 && 
          this.selections.progressive) {
       return {
         diagnosis:  "ALS",
@@ -24,7 +24,7 @@ class GoldCoast extends AwajiShima {
       };
     }
 
-    else if (this.regionsWithUMN === 1 && this.regionsWithLMN === 1 && 
+    if (this.regionsWithUMN === 1 && this.regionsWithLMN === 1 && 
         this.UMNLevel === this.LMNLevel && this.selections.progressive) {
       return {
         diagnosis:  "ALS",
@@ -34,13 +34,11 @@ class GoldCoast extends AwajiShima {
       };
     }
     
-    else {
     return {
       diagnosis: "--",
       explanation: `A valid diagnosis is not available for the selected findings based
                 on the Gold Coast criteria.`
     };
-    }
   }
 
   isLMNFindingPresent(region) {
