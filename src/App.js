@@ -178,19 +178,34 @@ class App extends Component {
     }
 if (this.mostRostralFinding === "UMN") {
   return (
-    `Based on the selected values, the program determined 
-          that the most rostral findings were ` +
-    this.mostRostralFinding +
-    ".");
+    <>Based on the selected values, the program determined 
+          that the most rostral findings were <strong>{this.mostRostralFinding}</strong>
+    .
+    </>
+  );
+  
+  // return (
+  //   `Based on the selected values, the program determined 
+  //         that the most rostral findings were ` +
+  //   this.mostRostralFinding +
+  //   ".");
 
   }
+  return (
+    <>
+      Based on the selected values, the program determined that the most rostral findings were <strong>{this.mostRostralFinding}</strong>. 
+      NB: A diagnosis of (Clinically) Probable ALS cannot be made when LMN findings are rostral to UMN findings.
+    </>
+  );
+  
 
-    return (
+  
+/*     return (
       `Based on the selected values, the program determined 
             that the most rostral findings were ` +
       this.mostRostralFinding +
       ". NB: A diagnosis of (Clinically) Probable ALS cannot be made when LMN findings are rostral to UMN findings."
-    );
+    ); */
   };
 
   showResults() {
