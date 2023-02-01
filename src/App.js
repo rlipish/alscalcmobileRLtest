@@ -193,10 +193,19 @@ if (this.mostRostralFinding === "UMN") {
   }
   return (
     <>
-      Based on the selected values, the program determined that the most rostral findings were <strong>{this.mostRostralFinding}</strong>. 
-      NB: A diagnosis of (Clinically) Probable ALS cannot be made when LMN findings are rostral to UMN findings.
+      Based on the selected values, the program determined that the most rostral findings were <strong>{this.mostRostralFinding}</strong>.
+      <br />
+      <strong>NB:</strong> A diagnosis of (Clinically) Probable ALS cannot be made when LMN findings are rostral to UMN findings.
     </>
   );
+  
+  
+  // return (
+  //   <>
+  //     Based on the selected values, the program determined that the most rostral findings were <strong>{this.mostRostralFinding}</strong>. 
+  //     NB: A diagnosis of (Clinically) Probable ALS cannot be made when LMN findings are rostral to UMN findings.
+  //   </>
+  // );
   
 
   
