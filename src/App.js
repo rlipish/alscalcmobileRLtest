@@ -277,9 +277,9 @@ if (this.mostRostralFinding === "UMN") {
 
   render() {
     let awajiInfo = `Lower motor neuron (LMN) findings can be any of the following: 
-    1. LMN clinical findings, 
-    2. Fibrillations/positive sharp waves AND chronic denervation, OR
-    3. Fasciculations AND chronic denervation.`;
+    1. LMN clinical findings
+    2. Fibrillations/positive sharp waves AND chronic denervation
+    3. Fasciculations AND chronic denervation`;
 
     let geneMessage = `A familial history of ALS is present, and a pathogenic 
       gene mutation in the patient has been identified:`;
