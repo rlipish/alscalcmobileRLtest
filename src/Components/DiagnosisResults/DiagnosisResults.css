@@ -1,7 +1,12 @@
-.criteriaName {
-  font-weight: 400;
-}
-
 .diagnosis {
   font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+.criteriaName {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.2em;
+  margin-bottom: 5px;
 }
