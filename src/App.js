@@ -165,17 +165,33 @@ class App extends Component {
   };
 
   getmostRostralFinding = () => {
+    // if (this.state.isTiltNeeded) {
+    //   switch (this.state.tilt) {
+    //     case true:
+    //       return `The most rostral findings were chosen to be UMN.`;
+    //     case false:
+    //       return `The most rostral findings were chosen to be LMN. 
+    //       NB: A diagnosis of (Clinically) Probable ALS cannot be made when LMN findings are rostral to UMN findings.`;
+    //     default:
+    //       return null;
+    //   }
+    // }
     if (this.state.isTiltNeeded) {
       switch (this.state.tilt) {
         case true:
-          return `The most rostral findings were chosen to be UMN.`;
+          return <p>The most rostral findings were chosen to be <strong>UMN</strong>.</p>;
         case false:
-          return `The most rostral findings were chosen to be LMN. 
-          NB: A diagnosis of (Clinically) Probable ALS cannot be made when LMN findings are rostral to UMN findings.`;
+          return (
+            <p>
+              The most rostral findings were chosen to be <strong>LMN</strong>.<br />
+              <strong>NB:</strong> A diagnosis of (Clinically) Probable ALS cannot be made when <strong>LMN</strong> findings are rostral to <strong>UMN</strong> findings.
+            </p>
+          );
         default:
           return null;
       }
     }
+    
 if (this.mostRostralFinding === "UMN") {
   return (
     <>Based on the selected values, the program determined 
