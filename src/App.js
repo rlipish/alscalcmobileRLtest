@@ -471,8 +471,7 @@ if (this.mostRostralFinding === "UMN") {
 diagnosis={this.airlieDiag.diagnosis}
 explanation={<div dangerouslySetInnerHTML={{ __html: this.airlieDiag.explanation.replace(/\n/g, "<br />") }} />}
 />
-
-          <hr />
+          {/* <hr /> */}
 
           <DiagnosisResults
           //   title="Awaji-Shima (2008)"
