@@ -276,9 +276,10 @@ if (this.mostRostralFinding === "UMN") {
   }
 
   render() {
-    let awajiInfo = `Lower motor neuron (LMN) findings can be any of the following: 1. LMN clinical findings, 2. 
-                    (fibrillations/positive sharp waves AND chronic denervation), OR
-                    3. (fasciculations AND chronic denervation).`;
+    let awajiInfo = `Lower motor neuron (LMN) findings can be any of the following: 
+    1. LMN clinical findings, 
+    2. Fibrillations/positive sharp waves AND chronic denervation, OR
+    3. Fasciculations AND chronic denervation.`;
 
     let geneMessage = `A familial history of ALS is present, and a pathogenic 
       gene mutation in the patient has been identified:`;
@@ -462,28 +463,42 @@ if (this.mostRostralFinding === "UMN") {
           <hr />
 
           <DiagnosisResults
-            title="El Escorial Revised (Airlie House) (2000)"
-            diagnosis={this.airlieDiag.diagnosis}
-            explanation={this.airlieDiag.explanation}
-          />
+          //   title="El Escorial Revised (Airlie House) (2000)"
+          //   diagnosis={this.airlieDiag.diagnosis}
+          //   explanation={this.airlieDiag.explanation}
+          // />
+          title="El Escorial Revised (Airlie House) (2000)"
+diagnosis={this.airlieDiag.diagnosis}
+explanation={<div dangerouslySetInnerHTML={{ __html: this.airlieDiag.explanation.replace(/\n/g, "<br />") }} />}
+/>
 
           <hr />
 
           <DiagnosisResults
-            title="Awaji-Shima (2008)"
-            diagnosis={this.awajiDiag.diagnosis}
-            explanation={this.awajiDiag.explanation}
-            additionalInfo={awajiInfo}
+          //   title="Awaji-Shima (2008)"
+          //   diagnosis={this.awajiDiag.diagnosis}
+          //   explanation={this.awajiDiag.explanation}
+          //   additionalInfo={awajiInfo}
+          // />
+          title="Awaji-Shima (2008)"
+          diagnosis={this.awajiDiag.diagnosis}
+          explanation={<div dangerouslySetInnerHTML={{ __html: this.awajiDiag.explanation.replace(/\n/g, "<br />") }} />}
+          additionalInfo={<div dangerouslySetInnerHTML={{ __html: awajiInfo.replace(/\n/g, "<br />") }} />}
           />
-
 <hr />
 
-          <DiagnosisResults
+          {/* <DiagnosisResults
             title="Gold Coast (2020)"
             diagnosis={this.goldDiag.diagnosis}
             explanation={this.goldDiag.explanation}
             additionalInfo={awajiInfo}
-          />
+          /> */}
+<DiagnosisResults
+title="Gold Coast (2020)"
+diagnosis={this.goldDiag.diagnosis}
+explanation={<div dangerouslySetInnerHTML={{ __html: this.goldDiag.explanation.replace(/\n/g, "<br />") }} />}
+additionalInfo={<div dangerouslySetInnerHTML={{ __html: awajiInfo.replace(/\n/g, "<br />") }} />}
+/>
           <hr />
         </div>
       );

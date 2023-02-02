@@ -21,10 +21,7 @@ class AirlieHouse extends ElEscorial {
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Definite Familial ALS - Laboratory Supported",
-        explanation: `This scenario is classified as Clinically Definite Familial
-                    ALS - Laboratory Supported as there are upper and lower motor neuron signs
-                    in at least a single region as well as a family history of a defined 
-                    pathogenic mutation.`
+        explanation: `This scenario is classified as Clinically Definite Familial ALS - Laboratory Supported as there are upper and lower motor neuron signs in at least a single region as well as a family history of a defined pathogenic mutation.`
       };
     }
 
@@ -36,10 +33,7 @@ class AirlieHouse extends ElEscorial {
     ) {
       return {
         diagnosis: "Clinically Definite ALS",
-        explanation: `This scenario is classified as Clinically Definite ALS as 
-                    there are upper motor neuron and lower motor neuron findings in the
-                    brainstem as well as upper motor neuron and lower motor neuron findings
-                    in two or more spinal regions.`
+        explanation: `This scenario is classified as Clinically Definite ALS as there are upper motor neuron and lower motor neuron findings in the brainstem as well as upper motor neuron and lower motor neuron findings in two or more spinal regions.`
       };
     }
 
@@ -47,9 +41,7 @@ class AirlieHouse extends ElEscorial {
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Definite ALS",
-        explanation: `This scenario is classified as Clinically Definite ALS as
-                    there are upper motor neuron and lower motor neuron findings in all 
-                    three spinal regions.`
+        explanation: `This scenario is classified as Clinically Definite ALS as there are upper motor neuron and lower motor neuron findings in all three spinal regions.`
       };
     }
 
@@ -61,10 +53,7 @@ class AirlieHouse extends ElEscorial {
     ) {
       return {
         diagnosis: "Clinically Probable ALS",
-        explanation: `This scenario is classified as Clinically Probable ALS as
-                        there are upper motor neuron and lower motor neuron findings in two or 
-                        more regions and some upper motor neuron signs are rostral to lower 
-                        motor neuron signs.`
+        explanation: `This scenario is classified as Clinically Probable ALS as there are upper motor neuron and lower motor neuron findings in two or more regions and some upper motor neuron signs are rostral to lower motor neuron signs.`
       };
     }
 
@@ -75,24 +64,31 @@ class AirlieHouse extends ElEscorial {
         this.regionsWithLMNByEMGOnly >= 2 && this.selections.excluded)) && 
         this.selections.progressive
     ) {
+      // return {
+      //   diagnosis: "Clinically Probable ALS - Laboratory Supported",
+      //   explanation: `This scenario is classified as Clinically Probable 
+      //                   ALS - Laboratory Supported as there are clinical signs of:
+      //                   1. UMN and LMN dysfunction are in only one region, OR 
+      //                   2. When UMN signs alone are present in one region, AND LMN signs defined by EMG criteria
+      //                   are present in at least two regions, 
+      //                   3. With proper application of neuroimaging and clinical laboratory protocols to exclude other causes.`
+      // };
       return {
         diagnosis: "Clinically Probable ALS - Laboratory Supported",
-        explanation: `This scenario is classified as Clinically Probable 
-                        ALS - Laboratory Supported as there are clinical signs of:
-                        1. UMN and LMN dysfunction are in only one region, OR 
-                        2. When UMN signs alone are present in one region, AND LMN signs defined by EMG criteria
-                        are present in at least two regions, 
-                        3. With proper application of neuroimaging and clinical laboratory protocols to exclude other causes.`
-      };
+        explanation: "This scenario is classified as Clinically Probable ALS - Laboratory Supported as there are clinical signs of:\n" +
+        "1. UMN and LMN dysfunction are in only one region, OR\n" +
+        "2. When UMN signs alone are present in one region, AND LMN signs defined by EMG criteria are present in at least two regions,\n" +
+        "3. With proper application of neuroimaging and clinical laboratory protocols to exclude other causes."
+        };
+    
+    
     }
 
     else if (this.areBothFindingsPresentInOnePhysicalRegion() && 
     this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
-        explanation: `This scenario is classified as Clinically Possible 
-                    ALS as there are upper motor neuron and lower motor neuron signs 
-                    in one region.`
+        explanation: `This scenario is classified as Clinically Possible ALS as there are upper motor neuron and lower motor neuron signs in one region.`
       };
     }
 
@@ -100,8 +96,7 @@ class AirlieHouse extends ElEscorial {
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
-        explanation: `This scenario is classified as Possible ALS as there are upper motor
-                     neuron signs “alone” in two or more regions.`
+        explanation: `This scenario is classified as Possible ALS as there are upper motor neuron signs “alone” in two or more regions.`
       };
     }
 
@@ -109,11 +104,7 @@ class AirlieHouse extends ElEscorial {
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS or NIL - Please see explanation below",
-        explanation: `This scenario is classified as Possible ALS as there are upper motor
-                     neuron signs “alone” in two or more regions. We interpret “alone” as meaning that
-                     these findings “on their own” would satisfy the criteria for possible ALS. If we interpret 
-                     "alone" to mean absolutely NO lower motor neuron signs are present, the pattern would not fit within the El Escorial Revised (Airlie House)
-                     criteria classification scheme.`
+        explanation: `This scenario is classified as Possible ALS as there are upper motor neuron signs “alone” in two or more regions. We interpret “alone” as meaning that these findings “on their own” would satisfy the criteria for possible ALS. If we interpret "alone" to mean absolutely NO lower motor neuron signs are present, the pattern would not fit within the El Escorial Revised (Airlie House) criteria classification scheme.`
       };
     }
 
@@ -121,22 +112,17 @@ class AirlieHouse extends ElEscorial {
       this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
-        explanation: `This scenario is classified as Clinically Possible 
-                    ALS as lower motor neuron signs are rostral to upper motor 
-                    neuron signs.`
+        explanation: `This scenario is classified as Clinically Possible ALS as lower motor neuron signs are rostral to upper motor neuron signs.`
       };
     }
 
     else {
     return {
       diagnosis: "--",
-      explanation: `A valid diagnosis is not available for the selected findings based
-                on the El Escorial revised (Airlie House) criteria.`
+      explanation: `A valid diagnosis is not available for the selected findings based on the El Escorial revised (Airlie House) criteria.`
     };
     }
   }
-
-
 
   countPhysicalRegions(finding) {
     let count = 0;

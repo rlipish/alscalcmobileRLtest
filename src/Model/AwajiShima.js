@@ -52,8 +52,7 @@ class AwajiShima extends AirlieHouse {
     this.selections.progressive) {
       return {
         diagnosis: "Clinically Possible ALS",
-        explanation: `This scenario is classified as Clinically Possible ALS as 
-                there are upper motor neuron and lower motor neuron signs together in one region.`
+        explanation: `This scenario is classified as Clinically Possible ALS as there are upper motor neuron and lower motor neuron signs together in one region.`
       };
     }
 
