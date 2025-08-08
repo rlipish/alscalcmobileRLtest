@@ -50,6 +50,10 @@ const Panel = ({ findings, findings1, results, final, changed }) => {
       >
         <SwiperSlide style={styles.slide}>{findings}</SwiperSlide>
         <SwiperSlide style={styles.slide}>{findings1}</SwiperSlide>
+        <SwiperSlide style={{ display: "block", height: "auto" }}>
+  {results}
+</SwiperSlide>
+
         <SwiperSlide style={styles.slide}>{results}</SwiperSlide>
         <SwiperSlide style={styles.slide}>{final}</SwiperSlide>
       </Swiper>
