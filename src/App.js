@@ -256,7 +256,8 @@ function App() {
   );
 
   const resultsBlock = (
-  <div className="results" style={{ minHeight: 300, backgroundColor: "#eee" }}>
+  <div className="results" style={{ minHeight: 300}}>
+  {/* <div className="results" style={{ minHeight: 300, backgroundColor: "#eee" }}> */}
     {isTiltNeeded && (
       <div className="tilt" style={{ marginBottom: 20 }}>
         On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron findings?

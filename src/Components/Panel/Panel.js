@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+// import Tabs from "@material-ui/core/Tabs";
+// import Tab from "@material-ui/core/Tab";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules"; // import Swiper modules
 import "swiper/css"; 
@@ -40,7 +40,7 @@ const Panel = ({ findings, findings1, results, final, changed }) => {
     <div>
       <Swiper
         modules={[Navigation, Pagination]} // enable nav + pagination
-        navigation // show prev/next arrows
+        // navigation // show prev/next arrows
         pagination={{ clickable: true }} // show dots & make them clickable
         onSwiper={(swiper) => (swiperInstance = swiper)}
         onSlideChange={handleSlideChange}
@@ -50,12 +50,34 @@ const Panel = ({ findings, findings1, results, final, changed }) => {
       >
         <SwiperSlide style={styles.slide}>{findings}</SwiperSlide>
         <SwiperSlide style={styles.slide}>{findings1}</SwiperSlide>
-        <SwiperSlide style={{ display: "block", height: "auto" }}>
+<SwiperSlide
+  style={{
+    display: "flex",
+    justifyContent: "center", // horizontal center
+    alignItems: "center",     // vertical center
+    height: "auto",           // take full slide height
+  }}
+>
   {results}
 </SwiperSlide>
 
-        <SwiperSlide style={styles.slide}>{results}</SwiperSlide>
-        <SwiperSlide style={styles.slide}>{final}</SwiperSlide>
+<SwiperSlide
+  style={{
+    display: "flex",
+    justifyContent: "center", // horizontal center
+    alignItems: "center",     // vertical center
+    height: "auto",           // take full slide height
+  }}
+>
+  {final}
+</SwiperSlide>
+
+{/* <SwiperSlide style={{ display: "block", height: "auto" }}>
+  {final}
+</SwiperSlide> */}
+
+        {/* <SwiperSlide style={styles.slide}>{results}</SwiperSlide>
+        <SwiperSlide style={styles.slide}>{final}</SwiperSlide> */}
       </Swiper>
 
       {/* Optional Tabs if you want to keep them */}
