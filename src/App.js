@@ -290,6 +290,40 @@ function App() {
   //   </div>
   // );
 
+  // Converts regions array to CSV and downloads it
+const exportRegionsToCSV = () => {
+  if (!regions || regions.length === 0) {
+    alert("No data to export");
+    return;
+  }
+
+  // CSV header row
+  const headers = Object.keys(regions[0]).join(",");
+
+  // CSV rows
+  const rows = regions.map(region =>
+    Object.values(region)
+      .map(val => (typeof val === "boolean" ? (val ? "Yes" : "No") : val))
+      .join(",")
+  );
+
+  // Combine into CSV string
+  const csvContent = [headers, ...rows].join("\n");
+
+  // Create a downloadable blob
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  // Create a temporary download link
+  const link = document.createElement("a");
+  link.setAttribute("href", url);
+  link.setAttribute("download", "regions.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+
   return (
     <div>
       <div className="title">
@@ -297,7 +331,29 @@ function App() {
           <h1>ALS Calculator</h1>
         </div>
       </div>
-      <Panel findings={findings} findings1={findings1} results={resultsBlock} final={<div className="final">{diagnosisResult}</div>} changed={showResults} />
+      
+      <Panel
+  findings={findings}
+  findings1={findings1}
+  results={resultsBlock}
+  final={
+    <div className="final">
+      {diagnosisResult}
+      <div style={{ marginTop: 20 }}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={exportRegionsToCSV}
+        >
+          Export Regions to CSV
+        </Button>
+      </div>
+    </div>
+  }
+  changed={showResults}
+/>
+
+      {/* <Panel findings={findings} findings1={findings1} results={resultsBlock} final={<div className="final">{diagnosisResult}</div>} changed={showResults} /> */}
     </div>
   );
 }
