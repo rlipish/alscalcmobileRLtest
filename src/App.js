@@ -256,21 +256,38 @@ function App() {
   );
 
   const resultsBlock = (
-    <div className="results">
-      {isTiltNeeded && (
-        <div className="tilt">
-          On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron findings?
-          <div className="tiltButtons">
-            <Button variant="contained" color={yesColor} onClick={yesButtonHandler}>Yes</Button>
-            <Button variant="contained" color={noColor} onClick={noButtonHandler}>No</Button>
-          </div>
+  <div className="results" style={{ minHeight: 300, backgroundColor: "#eee" }}>
+    {isTiltNeeded && (
+      <div className="tilt" style={{ marginBottom: 20 }}>
+        On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron findings?
+        <div className="tiltButtons" style={{ marginTop: 10 }}>
+          <Button variant="contained" color={yesColor} onClick={yesButtonHandler}>Yes</Button>
+          <Button variant="contained" color={noColor} onClick={noButtonHandler}>No</Button>
         </div>
-      )}
-      {makeQuestionBlock("Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, preceded by normal motor function?", yesColorP, noColorP, yesButtonHandlerProg, noButtonHandlerProg)}
-      {makeQuestionBlock("Other causes have been excluded with proper application of neuroimaging and clinical laboratory protocols:", yesColorE, noColorE, yesButtonHandlerEx, noButtonHandlerEx)}
-      {makeQuestionBlock("A familial history of ALS is present, and a pathogenic gene mutation in the patient has been identified:", yesColorF, noColorF, yesButtonHandlerFam, noButtonHandlerFam)}
-    </div>
-  );
+      </div>
+    )}
+    {makeQuestionBlock("Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, preceded by normal motor function?", yesColorP, noColorP, yesButtonHandlerProg, noButtonHandlerProg)}
+    {makeQuestionBlock("Other causes have been excluded with proper application of neuroimaging and clinical laboratory protocols:", yesColorE, noColorE, yesButtonHandlerEx, noButtonHandlerEx)}
+    {makeQuestionBlock("A familial history of ALS is present, and a pathogenic gene mutation in the patient has been identified:", yesColorF, noColorF, yesButtonHandlerFam, noButtonHandlerFam)}
+  </div>
+);
+
+  // const resultsBlock = (
+  //   <div className="results">
+  //     {isTiltNeeded && (
+  //       <div className="tilt">
+  //         On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron findings?
+  //         <div className="tiltButtons">
+  //           <Button variant="contained" color={yesColor} onClick={yesButtonHandler}>Yes</Button>
+  //           <Button variant="contained" color={noColor} onClick={noButtonHandler}>No</Button>
+  //         </div>
+  //       </div>
+  //     )}
+  //     {makeQuestionBlock("Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, preceded by normal motor function?", yesColorP, noColorP, yesButtonHandlerProg, noButtonHandlerProg)}
+  //     {makeQuestionBlock("Other causes have been excluded with proper application of neuroimaging and clinical laboratory protocols:", yesColorE, noColorE, yesButtonHandlerEx, noButtonHandlerEx)}
+  //     {makeQuestionBlock("A familial history of ALS is present, and a pathogenic gene mutation in the patient has been identified:", yesColorF, noColorF, yesButtonHandlerFam, noButtonHandlerFam)}
+  //   </div>
+  // );
 
   return (
     <div>

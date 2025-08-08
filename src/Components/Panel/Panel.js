@@ -1,10 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; // core Swiper styles
-import "swiper/css/navigation"; // optional if you want nav buttons
-import "swiper/css/pagination"; // optional if you want pagination dots
+import { Navigation, Pagination } from "swiper/modules"; // import Swiper modules
+import "swiper/css"; 
+import "swiper/css/navigation"; 
+import "swiper/css/pagination"; 
 
 const styles = {
   tabs: {
@@ -38,6 +39,9 @@ const Panel = ({ findings, findings1, results, final, changed }) => {
   return (
     <div>
       <Swiper
+        modules={[Navigation, Pagination]} // enable nav + pagination
+        navigation // show prev/next arrows
+        pagination={{ clickable: true }} // show dots & make them clickable
         onSwiper={(swiper) => (swiperInstance = swiper)}
         onSlideChange={handleSlideChange}
         initialSlide={index}
@@ -50,6 +54,7 @@ const Panel = ({ findings, findings1, results, final, changed }) => {
         <SwiperSlide style={styles.slide}>{final}</SwiperSlide>
       </Swiper>
 
+      {/* Optional Tabs if you want to keep them */}
       {/* <Tabs
         value={index}
         variant="fullWidth"
