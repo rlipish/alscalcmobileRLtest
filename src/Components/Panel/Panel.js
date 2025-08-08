@@ -54,7 +54,7 @@ const Panel = ({ findings, findings1, results, final, changed }) => {
   style={{
     display: "flex",
     justifyContent: "center", // horizontal center
-    alignItems: "center",     // vertical center
+    alignItems: "top",     // vertical center
     height: "auto",           // take full slide height
   }}
 >
