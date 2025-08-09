@@ -292,32 +292,75 @@ function App() {
 
   // Converts regions array to CSV and downloads it
 const exportRegionsToCSV = () => {
-  if (!regions || regions.length === 0) {
-    alert("No data to export");
-    return;
-  }
+  // Instead of calling showResults() + revealResultsFn(),
+  // we run their key logic here so the values are ready immediately.
 
-  // CSV header row
+  const airlie = new AirlieHouse({ regions, excluded, gene, tilt, progressive });
+  results.current.setDiagnosisStrategy(airlie);
+  mostRostralFinding.current = results.current.diagnosis.mostRostralFinding;
+
+  const tiltNeeded = results.current.diagnosis.isTiltConfirmationNeeded();
+  setIsTiltNeeded(tiltNeeded); // still updates state for UI
+
+  const elE = new ElEscorial({ regions, excluded, gene, tilt, progressive });
+  const awaji = new AwajiShima({ regions, excluded, gene, tilt, progressive });
+  const gold = new GoldCoast({ regions, excluded, gene, tilt, progressive });
+
+  results.current.setDiagnosisStrategy(elE);
+  elEDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(airlie);
+  airlieDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(awaji);
+  awajiDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(gold);
+  goldDiag.current = results.current.result;
+
+  // 1) Regions table
   const headers = Object.keys(regions[0]).join(",");
-
-  // CSV rows
   const rows = regions.map(region =>
     Object.values(region)
       .map(val => (typeof val === "boolean" ? (val ? "Yes" : "No") : val))
       .join(",")
   );
 
-  // Combine into CSV string
-  const csvContent = [headers, ...rows].join("\n");
+  // 2) Most rostral finding (plain text)
+  const rostralFindingText = mostRostralFinding.current || "";
 
-  // Create a downloadable blob
+  // 3) Helper to format diagnosis
+  const getDiagText = (diagObj) => {
+    if (!diagObj || !diagObj.current) return "";
+    const { diagnosis, explanation } = diagObj.current;
+    const diagText = typeof diagnosis === "string" ? diagnosis : JSON.stringify(diagnosis);
+    const expText = typeof explanation === "string" ? explanation : JSON.stringify(explanation);
+    return `${diagText} - ${expText}`;
+  };
+
+  // 4) Extra info
+  const extraInfo = [
+    "",
+    "Additional Information",
+    `Most Rostral Finding,${rostralFindingText}`,
+    `El Escorial,${getDiagText(elEDiag)}`,
+    `Airlie House,${getDiagText(airlieDiag)}`,
+    `Awaji-Shima,${getDiagText(awajiDiag)}`,
+    `Gold Coast,${getDiagText(goldDiag)}`,
+    `Gene Present,${gene ? "Yes" : "No"}`,
+    `Progressive,${progressive ? "Yes" : "No"}`,
+    `Other Conditions Excluded,${excluded ? "Yes" : "No"}`
+  ];
+
+  // 5) Create CSV content
+  const csvContent = [headers, ...rows, ...extraInfo].join("\n");
+
+  // 6) Download
   const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
-
-  // Create a temporary download link
   const link = document.createElement("a");
-  link.setAttribute("href", url);
-  link.setAttribute("download", "regions.csv");
+  link.href = url;
+  link.download = `regions_${new Date().toISOString().slice(0,19).replace(/[:T]/g, "-")}.csv`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
