@@ -245,6 +245,7 @@ function App() {
     );
   }
 
+  
   const makeQuestionBlock = (text, yesColor, noColor, yesHandler, noHandler) => (
     <div className="prog">
       {text}<br />
@@ -379,20 +380,23 @@ const exportRegionsToCSV = () => {
   findings={findings}
   findings1={findings1}
   results={resultsBlock}
-  final={
-    <div className="final">
-      {diagnosisResult}
-      <div style={{ marginTop: 20 }}>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={exportRegionsToCSV}
-        >
-          Export Regions to CSV
-        </Button>
-      </div>
+// 
+final={
+  <div className="final">
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Button
+        className="export-button"
+        variant="contained"
+        color="secondary"
+        onClick={exportRegionsToCSV}
+      >
+        Export Data to CSV
+      </Button>
     </div>
-  }
+    {diagnosisResult}
+    <div style={{ marginTop: 20 }}></div>
+  </div>
+}
   changed={showResults}
 />
 
