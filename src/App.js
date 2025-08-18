@@ -291,7 +291,7 @@ function App() {
   //   </div>
   // );
 
-  // Converts regions array to CSV and downloads it
+
 const exportRegionsToCSV = () => {
   // Instead of calling showResults() + revealResultsFn(),
   // we run their key logic here so the values are ready immediately.
@@ -343,7 +343,8 @@ const exportRegionsToCSV = () => {
   const extraInfo = [
     "",
     "Additional Information",
-    `Most Rostral Finding,${rostralFindingText}`,
+    `Most Rostral Finding,${tilt}`,
+    // `Most Rostral Finding,${rostralFindingText}`,
     `El Escorial,${getDiagText(elEDiag)}`,
     `Airlie House,${getDiagText(airlieDiag)}`,
     `Awaji-Shima,${getDiagText(awajiDiag)}`,
