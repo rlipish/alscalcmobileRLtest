@@ -232,7 +232,8 @@ function App() {
     revealResultsFn();
     diagnosisResult = (
       <div className="diagResults">
-        <div className="rostralFinding"><p>{getmostRostralFinding()}</p></div><hr />
+        {/* <div className="rostralFinding"><p>{getmostRostralFinding()}</p></div><hr /> */}
+        <div className="rostralFinding">{getmostRostralFinding()}</div><hr />
         <DiagnosisResults title="El Escorial (1994)" diagnosis={elEDiag.current.diagnosis} explanation={elEDiag.current.explanation} />
         <hr />
         <DiagnosisResults title="El Escorial Revised (Airlie House) (2000)" diagnosis={airlieDiag.current.diagnosis} explanation={airlieDiag.current.explanation} />
@@ -274,23 +275,6 @@ function App() {
   </div>
 );
 
-  // const resultsBlock = (
-  //   <div className="results">
-  //     {isTiltNeeded && (
-  //       <div className="tilt">
-  //         On review, does the patient have any upper motor neuron findings rostral (i.e above) to lower motor neuron findings?
-  //         <div className="tiltButtons">
-  //           <Button variant="contained" color={yesColor} onClick={yesButtonHandler}>Yes</Button>
-  //           <Button variant="contained" color={noColor} onClick={noButtonHandler}>No</Button>
-  //         </div>
-  //       </div>
-  //     )}
-  //     {makeQuestionBlock("Has the patient experienced progressive motor impairment documented by history or repeated clinical assessment, preceded by normal motor function?", yesColorP, noColorP, yesButtonHandlerProg, noButtonHandlerProg)}
-  //     {makeQuestionBlock("Other causes have been excluded with proper application of neuroimaging and clinical laboratory protocols:", yesColorE, noColorE, yesButtonHandlerEx, noButtonHandlerEx)}
-  //     {makeQuestionBlock("A familial history of ALS is present, and a pathogenic gene mutation in the patient has been identified:", yesColorF, noColorF, yesButtonHandlerFam, noButtonHandlerFam)}
-  //   </div>
-  // );
-
 
 const exportRegionsToCSV = () => {
   // Instead of calling showResults() + revealResultsFn(),
@@ -328,7 +312,7 @@ const exportRegionsToCSV = () => {
   );
 
   // 2) Most rostral finding (plain text)
-  const rostralFindingText = mostRostralFinding.current || "";
+  // const rostralFindingText = mostRostralFinding.current || "";
 
   // 3) Helper to format diagnosis
   const getDiagText = (diagObj) => {
