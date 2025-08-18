@@ -140,8 +140,8 @@ function App() {
   };
 
   const showResults = () => {
-    setYesColor("default");
-    setNoColor("default");
+    // setYesColor("default");
+    // setNoColor("default");
 
     const airlie = new AirlieHouse({ regions, excluded, gene, tilt, progressive });
     results.current.setDiagnosisStrategy(airlie);
