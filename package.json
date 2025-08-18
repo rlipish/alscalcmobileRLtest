@@ -1,6 +1,6 @@
 {
   "name": "alscalc",
-  "version": "0.1.40",
+  "version": "0.1.50",
   "private": true,
   "homepage": "https://rlipish.github.io/alscalcmobileRLtest/",
   "dependencies": {
@@ -32,7 +32,7 @@
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages-swiper -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
