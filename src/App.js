@@ -327,7 +327,7 @@ const exportRegionsToCSV = () => {
   const extraInfo = [
     "",
     "Additional Information",
-    `Most Rostral Finding,${tilt}`,
+    `Most Rostral Finding is UMN,${tilt}`,
     // `Most Rostral Finding,${rostralFindingText}`,
     `El Escorial,${getDiagText(elEDiag)}`,
     `Airlie House,${getDiagText(airlieDiag)}`,
