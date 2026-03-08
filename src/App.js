@@ -63,6 +63,52 @@ function App() {
   };
 
   const resetButtonHandler = () => window.location.reload();
+  
+  const clearSettingsAndUpdate = async () => {
+    // Show confirmation dialog
+    const confirmed = window.confirm('Are you sure you want to update the app? This will clear all site settings and refresh to the latest version.');
+    if (!confirmed) {
+      return; // User cancelled
+    }
+    
+    try {
+      // Clear localStorage
+      localStorage.clear();
+      
+      // Clear sessionStorage
+      sessionStorage.clear();
+      
+      // Clear all IndexedDB databases
+      const dbs = await window.indexedDB.databases();
+      dbs.forEach(db => {
+        window.indexedDB.deleteDatabase(db.name);
+      });
+      
+      // Unregister all service workers
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (let registration of registrations) {
+          await registration.unregister();
+        }
+      }
+      
+      // Clear all caches
+      if ('caches' in window) {
+        const cacheNames = await caches.keys();
+        await Promise.all(
+          cacheNames.map(cacheName => caches.delete(cacheName))
+        );
+      }
+      
+      // Show confirmation and reload after a short delay
+      alert('Site settings cleared. The app will now refresh to the latest version.');
+      window.location.reload(true); // Force full refresh bypassing cache
+    } catch (error) {
+      console.error('Error clearing settings:', error);
+      alert('Error clearing settings. Please try again.');
+    }
+  };
+  
   const yesButtonHandler = () => {
     setTilt(true);
     setRevealResults(true);
@@ -196,6 +242,7 @@ function App() {
       </div>
       <div className="reset">
         <Button className="resetButton" variant="outlined" onClick={resetButtonHandler}>Reset All</Button>
+        <Button className="clearButton" variant="outlined" color="secondary" onClick={clearSettingsAndUpdate}>Update App</Button>
       </div>
     </div>
   );
@@ -224,6 +271,7 @@ function App() {
       </div>
       <div className="reset">
         <Button className="resetButton" variant="outlined" onClick={resetButtonHandler}>Reset All</Button>
+        <Button className="clearButton" variant="outlined" color="secondary" onClick={clearSettingsAndUpdate}>Update App</Button>
       </div>
     </div>
   );

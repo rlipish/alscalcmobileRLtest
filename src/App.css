@@ -134,9 +134,11 @@ body {
 .reset {
   position: absolute;
   bottom: calc(20px + 4vh);
-/* top: 380px; */
   right: 15%;
-  /* border: solid yellow; */
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .tilt {
