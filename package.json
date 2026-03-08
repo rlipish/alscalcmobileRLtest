@@ -13,6 +13,7 @@
     "gh-pages": "^6.3.0",
     "json5": "^2.2.3",
     "jspdf": "^4.2.0",
+    "jspdf-autotable": "^5.0.7",
     "loader-utils": "^3.2.1",
     "minimatch": "^9.0.3",
     "minimist": "^1.2.8",

@@ -11,6 +11,7 @@ import GoldCoast from "./Model/GoldCoast";
 import Panel from "./Components/Panel/Panel";
 import DiagnosisResults from "./Components/DiagnosisResults/DiagnosisResults";
 import Button from "@material-ui/core/Button";
+import jsPDF from 'jspdf';
 
 function App() {
   const results = useRef(new Results());
@@ -352,6 +353,193 @@ const exportRegionsToCSV = () => {
   document.body.removeChild(link);
 };
 
+const exportRegionsToPDF = () => {
+  // Run the same logic as CSV export to get current data
+  const airlie = new AirlieHouse({ regions, excluded, gene, tilt, progressive });
+  results.current.setDiagnosisStrategy(airlie);
+  mostRostralFinding.current = results.current.diagnosis.mostRostralFinding;
+
+  const tiltNeeded = results.current.diagnosis.isTiltConfirmationNeeded();
+  setIsTiltNeeded(tiltNeeded);
+
+  const elE = new ElEscorial({ regions, excluded, gene, tilt, progressive });
+  const awaji = new AwajiShima({ regions, excluded, gene, tilt, progressive });
+  const gold = new GoldCoast({ regions, excluded, gene, tilt, progressive });
+
+  results.current.setDiagnosisStrategy(elE);
+  elEDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(airlie);
+  airlieDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(awaji);
+  awajiDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(gold);
+  goldDiag.current = results.current.result;
+
+  // Create PDF document
+  const doc = new jsPDF();
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 15;
+  let currentY = 20;
+  
+  // Title
+  doc.setFontSize(20);
+  doc.setFont(undefined, 'bold');
+  doc.text('ALS Calculator Results', margin, currentY);
+  currentY += 12;
+  
+  // Date
+  doc.setFontSize(11);
+  doc.setFont(undefined, 'normal');
+  doc.text(`Generated on: ${new Date().toLocaleString()}`, margin, currentY);
+  currentY += 15;
+  
+  // Regions table
+  doc.setFontSize(14);
+  doc.setFont(undefined, 'bold');
+  doc.text('Regions Data', margin, currentY);
+  currentY += 8;
+  
+  // Draw regions table
+  const tableColumns = Object.keys(regions[0]);
+  const columnWidths = tableColumns.map(() => (pageWidth - 2 * margin) / tableColumns.length);
+  const cellHeight = 6;
+  const headerBgColor = [41, 128, 185];
+  const headerTextColor = [255, 255, 255];
+  const borderColor = [200, 200, 200];
+  
+  // Draw header
+  doc.setFillColor(...headerBgColor);
+  doc.setTextColor(...headerTextColor);
+  doc.setFontSize(9);
+  doc.setFont(undefined, 'bold');
+  
+  let cellX = margin;
+  tableColumns.forEach((col, idx) => {
+    doc.rect(cellX, currentY, columnWidths[idx], cellHeight, 'F');
+    doc.setDrawColor(...borderColor);
+    doc.rect(cellX, currentY, columnWidths[idx], cellHeight);
+    
+    const text = col.length > 15 ? col.substring(0, 12) + '...' : col;
+    doc.text(text, cellX + 1, currentY + 4, { maxWidth: columnWidths[idx] - 2 });
+    cellX += columnWidths[idx];
+  });
+  currentY += cellHeight;
+  
+  // Draw rows
+  doc.setTextColor(0, 0, 0);
+  doc.setFont(undefined, 'normal');
+  regions.forEach((region, rowIdx) => {
+    if (currentY > pageHeight - 20) {
+      doc.addPage();
+      currentY = 20;
+    }
+    
+    cellX = margin;
+    tableColumns.forEach((col, colIdx) => {
+      const value = region[col];
+      const displayValue = typeof value === 'boolean' ? (value ? 'Yes' : 'No') : String(value);
+      
+      doc.setDrawColor(...borderColor);
+      doc.rect(cellX, currentY, columnWidths[colIdx], cellHeight);
+      doc.text(displayValue, cellX + 1, currentY + 4, { maxWidth: columnWidths[colIdx] - 2 });
+      cellX += columnWidths[colIdx];
+    });
+    currentY += cellHeight;
+  });
+  
+  currentY += 10;
+  
+  // Additional Information section
+  doc.setFontSize(14);
+  doc.setFont(undefined, 'bold');
+  doc.text('Additional Information', margin, currentY);
+  currentY += 8;
+  
+  // Helper to format diagnosis
+  const getDiagText = (diagObj) => {
+    if (!diagObj || !diagObj.current) return "";
+    const { diagnosis, explanation } = diagObj.current;
+    const diagText = typeof diagnosis === "string" ? diagnosis : JSON.stringify(diagnosis);
+    const expText = typeof explanation === "string" ? explanation : JSON.stringify(explanation);
+    return `${diagText} - ${expText}`;
+  };
+  
+  const additionalData = [
+    ['Most Rostral Finding is UMN', tilt ? 'Yes' : 'No'],
+    ['El Escorial', getDiagText(elEDiag)],
+    ['Airlie House', getDiagText(airlieDiag)],
+    ['Awaji-Shima', getDiagText(awajiDiag)],
+    ['Gold Coast', getDiagText(goldDiag)],
+    ['Gene Present', gene ? 'Yes' : 'No'],
+    ['Progressive', progressive ? 'Yes' : 'No'],
+    ['Other Conditions Excluded', excluded ? 'Yes' : 'No']
+  ];
+  
+  // Draw additional information table
+  const col1Width = 70;
+  const col2Width = pageWidth - 2 * margin - col1Width;
+  const additionalCellHeight = 12;
+  
+  // Helper function to get text height based on content
+  const getTextHeight = (text, maxWidth, fontSize) => {
+    doc.setFontSize(fontSize);
+    const lines = doc.splitTextToSize(text, maxWidth);
+    return lines.length * 4;
+  };
+  
+  doc.setFillColor(...headerBgColor);
+  doc.setTextColor(...headerTextColor);
+  doc.setFont(undefined, 'bold');
+  doc.setFontSize(9);
+  
+  doc.rect(margin, currentY, col1Width, additionalCellHeight, 'F');
+  doc.setDrawColor(...borderColor);
+  doc.rect(margin, currentY, col1Width, additionalCellHeight);
+  doc.text('Label', margin + 2, currentY + 6);
+  
+  doc.rect(margin + col1Width, currentY, col2Width, additionalCellHeight, 'F');
+  doc.rect(margin + col1Width, currentY, col2Width, additionalCellHeight);
+  doc.text('Value', margin + col1Width + 2, currentY + 6);
+  currentY += additionalCellHeight;
+  
+  doc.setTextColor(0, 0, 0);
+  doc.setFont(undefined, 'normal');
+  doc.setFontSize(9);
+  
+  additionalData.forEach((row) => {
+    const label = row[0];
+    const value = row[1];
+    
+    // Calculate height needed for value text
+    const valueLines = doc.splitTextToSize(value, col2Width - 4);
+    const rowHeight = Math.max(additionalCellHeight, valueLines.length * 4 + 4);
+    
+    if (currentY + rowHeight > pageHeight - 20) {
+      doc.addPage();
+      currentY = 20;
+    }
+    
+    doc.setDrawColor(...borderColor);
+    doc.rect(margin, currentY, col1Width, rowHeight);
+    doc.rect(margin + col1Width, currentY, col2Width, rowHeight);
+    
+    doc.setFont(undefined, 'bold');
+    doc.text(label, margin + 2, currentY + 5, { maxWidth: col1Width - 4 });
+    
+    doc.setFont(undefined, 'normal');
+    doc.text(valueLines, margin + col1Width + 2, currentY + 5, { maxWidth: col2Width - 4 });
+    
+    currentY += rowHeight;
+  });
+  
+  // Save the PDF
+  doc.save(`als_results_${new Date().toISOString().slice(0,19).replace(/[:T]/g, "-")}.pdf`);
+};
+
 
   return (
     <div>
@@ -368,7 +556,7 @@ const exportRegionsToCSV = () => {
 // 
 final={
   <div className="final">
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
       <Button
         className="export-button"
         variant="contained"
@@ -376,6 +564,14 @@ final={
         onClick={exportRegionsToCSV}
       >
         Export Data to CSV
+      </Button>
+      <Button
+        className="export-button"
+        variant="contained"
+        color="primary"
+        onClick={exportRegionsToPDF}
+      >
+        Export Data to PDF
       </Button>
     </div>
     {diagnosisResult}
