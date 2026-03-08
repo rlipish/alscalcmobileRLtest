@@ -8,6 +8,7 @@ import ElEscorial from "./Model/ElEscorial";
 import AirlieHouse from "./Model/AirlieHouse";
 import AwajiShima from "./Model/AwajiShima";
 import GoldCoast from "./Model/GoldCoast";
+import jsPDF from 'jspdf';
 import Panel from "./Components/Panel/Panel";
 import DiagnosisResults from "./Components/DiagnosisResults/DiagnosisResults";
 import Button from "@material-ui/core/Button";
@@ -353,6 +354,122 @@ const exportRegionsToCSV = () => {
 };
 
 
+const exportRegionsToPDF = () => {
+  // Reuse the same logic as CSV export to get the data
+  const airlie = new AirlieHouse({ regions, excluded, gene, tilt, progressive });
+  results.current.setDiagnosisStrategy(airlie);
+  mostRostralFinding.current = results.current.diagnosis.mostRostralFinding;
+
+  const tiltNeeded = results.current.diagnosis.isTiltConfirmationNeeded();
+  setIsTiltNeeded(tiltNeeded);
+
+  const elE = new ElEscorial({ regions, excluded, gene, tilt, progressive });
+  const awaji = new AwajiShima({ regions, excluded, gene, tilt, progressive });
+  const gold = new GoldCoast({ regions, excluded, gene, tilt, progressive });
+
+  results.current.setDiagnosisStrategy(elE);
+  elEDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(airlie);
+  airlieDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(awaji);
+  awajiDiag.current = results.current.result;
+
+  results.current.setDiagnosisStrategy(gold);
+  goldDiag.current = results.current.result;
+
+  // Create PDF
+  const doc = new jsPDF();
+  let yPosition = 20;
+
+  // Title
+  doc.setFontSize(18);
+  doc.text('ALS Calculator Results', 20, yPosition);
+  yPosition += 20;
+
+  // Date
+  doc.setFontSize(12);
+  doc.text(`Generated on: ${new Date().toLocaleString()}`, 20, yPosition);
+  yPosition += 15;
+
+  // Regions Table
+  doc.setFontSize(14);
+  doc.text('Regions Data:', 20, yPosition);
+  yPosition += 10;
+
+  // Table headers
+  const headers = Object.keys(regions[0]);
+  doc.setFontSize(10);
+  headers.forEach((header, index) => {
+    doc.text(header, 20 + (index * 25), yPosition);
+  });
+  yPosition += 8;
+
+  // Table rows
+  regions.forEach(region => {
+    headers.forEach((header, index) => {
+      let value = region[header];
+      if (typeof value === "boolean") {
+        value = value ? "Yes" : "No";
+      }
+      doc.text(String(value), 20 + (index * 25), yPosition);
+    });
+    yPosition += 6;
+  });
+
+  yPosition += 10;
+
+  // Additional Information
+  doc.setFontSize(14);
+  doc.text('Additional Information:', 20, yPosition);
+  yPosition += 10;
+
+  doc.setFontSize(10);
+  const additionalData = [
+    `Most Rostral Finding is UMN: ${tilt}`,
+    `Gene Present: ${gene ? "Yes" : "No"}`,
+    `Progressive: ${progressive ? "Yes" : "No"}`,
+    `Other Conditions Excluded: ${excluded ? "Yes" : "No"}`
+  ];
+
+  additionalData.forEach(item => {
+    doc.text(item, 20, yPosition);
+    yPosition += 10; // more space between items
+  });
+  
+  yPosition += 15; // extra gap before diagnosis section
+  
+  // Diagnosis Results
+  doc.setFontSize(14);
+  doc.text('Diagnosis Results:', 20, yPosition);
+  yPosition += 12;
+  
+  doc.setFontSize(10);
+  const diagnoses = [
+    { name: 'El Escorial', diag: elEDiag.current },
+    { name: 'Airlie House', diag: airlieDiag.current },
+    { name: 'Awaji-Shima', diag: awajiDiag.current },
+    { name: 'Gold Coast', diag: goldDiag.current }
+  ];
+  
+  diagnoses.forEach(diag => {
+    if (diag.diag) {
+      const diagnosis = typeof diag.diag.diagnosis === "string" ? diag.diag.diagnosis : JSON.stringify(diag.diag.diagnosis);
+      const explanation = typeof diag.diag.explanation === "string" ? diag.diag.explanation : JSON.stringify(diag.diag.explanation);
+      
+      doc.text(`${diag.name}:`, 20, yPosition);
+      yPosition += 8; // increase gap between criteria
+      doc.text(`  Diagnosis: ${diagnosis}`, 25, yPosition);
+      yPosition += 8;
+      doc.text(`  Explanation: ${explanation}`, 25, yPosition);
+      yPosition += 12;
+
+  // Download PDF
+  doc.save(`ALS_Results_${new Date().toISOString().slice(0,19).replace(/[:T]/g, "-")}.pdf`);
+};
+
+
   return (
     <div>
       <div className="title">
@@ -368,7 +485,7 @@ const exportRegionsToCSV = () => {
 // 
 final={
   <div className="final">
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
       <Button
         className="export-button"
         variant="contained"
@@ -376,6 +493,14 @@ final={
         onClick={exportRegionsToCSV}
       >
         Export Data to CSV
+      </Button>
+      <Button
+        className="export-button"
+        variant="contained"
+        color="primary"
+        onClick={exportRegionsToPDF}
+      >
+        Export Data to PDF
       </Button>
     </div>
     {diagnosisResult}
