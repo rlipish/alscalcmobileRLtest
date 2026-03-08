@@ -465,7 +465,9 @@ const exportRegionsToPDF = () => {
     const { diagnosis, explanation } = diagObj.current;
     const diagText = typeof diagnosis === "string" ? diagnosis : JSON.stringify(diagnosis);
     const expText = typeof explanation === "string" ? explanation : JSON.stringify(explanation);
-    return `${diagText} - ${expText}`;
+    // Clean up the text by removing extra spaces and normalizing formatting
+    const cleanedExpText = expText.replace(/\s+/g, ' ').trim();
+    return `${diagText} - ${cleanedExpText}`;
   };
   
   const additionalData = [
@@ -484,13 +486,6 @@ const exportRegionsToPDF = () => {
   const col2Width = pageWidth - 2 * margin - col1Width;
   const additionalCellHeight = 12;
   
-  // Helper function to get text height based on content
-  const getTextHeight = (text, maxWidth, fontSize) => {
-    doc.setFontSize(fontSize);
-    const lines = doc.splitTextToSize(text, maxWidth);
-    return lines.length * 4;
-  };
-  
   doc.setFillColor(...headerBgColor);
   doc.setTextColor(...headerTextColor);
   doc.setFont(undefined, 'bold');
@@ -508,15 +503,16 @@ const exportRegionsToPDF = () => {
   
   doc.setTextColor(0, 0, 0);
   doc.setFont(undefined, 'normal');
-  doc.setFontSize(9);
+  doc.setFontSize(8);
   
   additionalData.forEach((row) => {
     const label = row[0];
     const value = row[1];
     
-    // Calculate height needed for value text
+    // Calculate height needed for value text with consistent line spacing
     const valueLines = doc.splitTextToSize(value, col2Width - 4);
-    const rowHeight = Math.max(additionalCellHeight, valueLines.length * 4 + 4);
+    const lineSpacing = 3.5;
+    const rowHeight = Math.max(additionalCellHeight, valueLines.length * lineSpacing + 3);
     
     if (currentY + rowHeight > pageHeight - 20) {
       doc.addPage();
@@ -531,7 +527,11 @@ const exportRegionsToPDF = () => {
     doc.text(label, margin + 2, currentY + 5, { maxWidth: col1Width - 4 });
     
     doc.setFont(undefined, 'normal');
-    doc.text(valueLines, margin + col1Width + 2, currentY + 5, { maxWidth: col2Width - 4 });
+    doc.text(valueLines, margin + col1Width + 2, currentY + 3.5, { 
+      maxWidth: col2Width - 4,
+      align: 'left',
+      lineHeightFactor: 1.2
+    });
     
     currentY += rowHeight;
   });
